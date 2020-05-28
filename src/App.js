@@ -1,10 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-//import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Nav from './Components/Nav';
-//import ClockInButton from './Components/ClockInButton';
-//import LunchButton from './Components/LunchButton'
+import Footer from './Components/Footer';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -27,8 +26,10 @@ export default function FullWidthGrid() {
         <Grid item xs={12}>
           <Nav />
         </Grid>
-
+        <Footer />
       </Grid>
+
+      
     </div>
   );
 }

@@ -7,11 +7,14 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import MyClock from '../Clock';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import ClockInButton from '../ClockInButton';
+import ClockOutButton from '../ClockOutButton';
+import EmployeeInput from '../EmployeeInput';
 import LunchButton from '../LunchButton';
-import EmployeeInput from '../EmployeeInput'
+import TimeData from '../TimeData';
+import JobTitle from '../JobTitle';
+import ViewHoursButton from '../ViewHoursButton';
 
 
 function TabPanel(props) {
@@ -66,12 +69,14 @@ export default function SimpleTabs() {
         <div className={classes.root}>
             <AppBar position="static">
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                    <Tab label="Clock In" {...a11yProps(0)} />
+                    <Tab label="Punch in/out" {...a11yProps(0)} />
                     <Tab label="Hours" {...a11yProps(1)} />
                     <Tab label="Item Three" {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
+
             <TabPanel value={value} index={0}>
+
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <MyClock />
@@ -81,10 +86,13 @@ export default function SimpleTabs() {
                 </br>
                 <br>
                 </br>
+
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <EmployeeInput />
-
+                    </Grid>
+                    <Grid item xs={12}>
+                        <JobTitle />
                     </Grid>
                 </Grid>
                 <br>
@@ -97,14 +105,37 @@ export default function SimpleTabs() {
                         <ClockInButton />
                     </Grid>
                     <Grid item xs={6}>
+                        <ClockOutButton />
+                    </Grid>
+                </Grid>
+
+                <Grid container spacing={3}>
+                    <Grid item xs={4}>
+                    </Grid>
+                    <Grid item xs={4}>
                         <LunchButton />
+                    </Grid>
+                    <Grid item xs={4}>
                     </Grid>
                 </Grid>
 
             </TabPanel>
+
             <TabPanel value={value} index={1}>
-                More coming here
-      </TabPanel>
+
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <TimeData />
+                    </Grid>
+                </Grid>
+
+                <Grid container spacing={3}> 
+                    <Grid item xs={12}>
+                        <ViewHoursButton />
+                    </Grid>
+                </Grid>
+            </TabPanel>
+
             <TabPanel value={value} index={2}>
                 Item Three
       </TabPanel>

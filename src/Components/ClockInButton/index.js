@@ -2,6 +2,7 @@ import React from 'react';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { green, purple } from '@material-ui/core/colors';
+import './style.css'
 
 const BootstrapButton = withStyles({
   root: {
@@ -63,18 +64,26 @@ const theme = createMuiTheme({
   },
 });
 
+function clickMe() {
+  console.log('click me bitch!!!')
+}
+
 export default function CustomizedButtons() {
   const classes = useStyles();
 
   return (
-    <div className="clockIn">
-      
+    <div className="clock-in">
+
       <ThemeProvider theme={theme}>
-        <Button variant="contained" color="primary" className={classes.margin}>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.margin}
+          onClick={clickMe}>
           Clockin
         </Button>
       </ThemeProvider>
-     
+
     </div>
   );
 }

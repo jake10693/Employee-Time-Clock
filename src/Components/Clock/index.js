@@ -17,7 +17,7 @@ class MyClock extends Component {
   render() {
     return (
       <div className="clock">
-        <p className="title">Current time:</p>
+        <p className="title">Current Time:</p>
         <Clock
           value={this.state.date}
         />
