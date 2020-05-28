@@ -12,9 +12,10 @@ import ClockInButton from '../ClockInButton';
 import ClockOutButton from '../ClockOutButton';
 import EmployeeInput from '../EmployeeInput';
 import LunchButton from '../LunchButton';
-import TimeData from '../TimeData';
+import Calendar from '../Calendar';
 import JobTitle from '../JobTitle';
 import ViewHoursButton from '../ViewHoursButton';
+import TimeData from '../TimeData';
 
 
 function TabPanel(props) {
@@ -125,7 +126,13 @@ export default function SimpleTabs() {
 
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                        <TimeData />
+                        <Calendar />
+                    </Grid>
+                </Grid>
+
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                       <TimeData />
                     </Grid>
                 </Grid>
 

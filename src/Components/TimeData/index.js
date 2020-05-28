@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
- 
-class TimeData extends Component {
-  state = {
-    date: new Date(),
-  }
- 
-  onChange = date => this.setState({ date })
- 
-  render() {
-    return (
-      <div>
-        <Calendar
-          onChange={this.onChange}
-          value={this.state.date}
-        />
-      </div>
-    );
-  }
-}
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
-export default TimeData
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+}));
+
+export default function BasicTextFields() {
+  const classes = useStyles();
+
+  return (
+    <form className={classes.root} noValidate autoComplete="off">
+      <TextField id="standard-basic" label="Hours worked" />
+      <TextField id="standard-basic" label="Days Worked" />
+      
+    </form>
+  );
+}
