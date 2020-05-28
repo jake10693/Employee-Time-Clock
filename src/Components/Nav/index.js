@@ -135,7 +135,8 @@ export default function SimpleTabs() {
                        <TimeData />
                     </Grid>
                 </Grid>
-
+                <br>
+                </br>
                 <Grid container spacing={3}> 
                     <Grid item xs={12}>
                         <ViewHoursButton />
