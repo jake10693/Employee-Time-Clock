@@ -1,14 +1,8 @@
-<<<<<<< HEAD:client/src/App.js
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-=======
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Nav from './Components/Nav';
 import Footer from './Components/Footer';
->>>>>>> e69de98667d8b7f193cdf2d82759d95aece47abf:src/App.js
 
 
 

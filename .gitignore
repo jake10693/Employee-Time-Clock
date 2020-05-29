@@ -1,8 +1,3 @@
-<<<<<<< HEAD
 build/
-node-modules/
-=======
-node_modules
-node_modules
-build/
->>>>>>> e69de98667d8b7f193cdf2d82759d95aece47abf
+node_modules/
+/client/node_modules/

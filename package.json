@@ -1,23 +1,8 @@
 {
   "name": "mern",
-<<<<<<< HEAD
   "version": "1.0.0",
   "description": "Mern Demo",
   "main": "server.js",
-=======
-  "homepage": "https://thebigdeal916.github.io/Project-3",
-  "version": "0.1.0",
-  "private": true,
-  "proxy": "http://localhost:3001/",
-  "dependencies": {
-    "@material-ui/core": "^4.10.0",
-    "react": "^16.6.3",
-    "react-calendar": "^3.1.0",
-    "react-clock": "^2.4.0",
-    "react-dom": "^16.6.3",
-    "react-scripts": "^2.1.1"
-  },
->>>>>>> e69de98667d8b7f193cdf2d82759d95aece47abf
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
