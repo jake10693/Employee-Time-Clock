@@ -23,18 +23,7 @@ mongoose.connect
   .catch((err) => console.log('There was an issue connecting to Mongo'));
 
 //app.use(require("./routes/static.js"));
-//app.use(require("./routes/app.js"));
-
-app.post("/submit", ({ body }, res) => {
-  db.Records.create(body)
-    .then(({ _id }) => db.Company.findOneAndUpdate({}, { $push: { records: _id } }, { new: true }))
-    .then(dbUser => {
-      res.json(dbUser);
-    })
-    .catch(err => {
-      res.json(err);
-    });
-});
+app.use(require("./routes/app.js"));
 
 app.listen(PORT, function () {
   console.log(`Server is running on port ${PORT}!`);
