@@ -63,8 +63,8 @@ const theme = createMuiTheme({
   },
 });
 
-function clickMe() {
-  console.log("fuckin clicked!!!")
+function lunch() {
+  alert('lunch started!!!')
 }
 
 export default function CustomizedButtons() {
@@ -80,7 +80,7 @@ export default function CustomizedButtons() {
           variant="contained"
           color="primary"
           className={classes.margin}
-          onClick={clickMe}>
+          onClick={lunch}>
           Lunch
       </BootstrapButton>
       </ThemeProvider>

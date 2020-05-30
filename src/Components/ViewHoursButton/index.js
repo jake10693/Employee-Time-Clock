@@ -11,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function clickMe(){
-    console.log('click me motherfucker!!!')
+function viewHours(){
+    alert('Time ready to view')
 }
 
 export default function ContainedButtons() {
@@ -24,7 +24,7 @@ export default function ContainedButtons() {
       <Button 
       variant="contained" 
       color="primary"
-      onClick={clickMe}>
+      onClick={viewHours}>
         View Time
       </Button>
       

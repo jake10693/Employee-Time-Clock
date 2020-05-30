@@ -64,8 +64,8 @@ const theme = createMuiTheme({
   },
 });
 
-function clickMe() {
-  console.log('click me bitch!!!')
+function clockIn() {
+  alert('Clock in Successfully!')
 }
 
 export default function CustomizedButtons() {
@@ -79,7 +79,7 @@ export default function CustomizedButtons() {
           variant="contained"
           color="primary"
           className={classes.margin}
-          onClick={clickMe}>
+          onClick={clockIn}>
           Clockin
         </Button>
       </ThemeProvider>

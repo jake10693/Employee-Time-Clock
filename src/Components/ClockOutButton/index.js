@@ -11,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function clickMe() {
-  console.log('ive ben clicked!!!')
+function clockOut() {
+  alert('clocked out successfully!')
 }
 
 export default function ContainedButtons() {
@@ -24,7 +24,7 @@ export default function ContainedButtons() {
       <Button
         variant="contained"
         color="secondary"
-        onClick={clickMe}>
+        onClick={clockOut}>
         clockout
       </Button>
 
