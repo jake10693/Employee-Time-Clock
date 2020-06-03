@@ -15,11 +15,16 @@ import Calendar from '../Calendar';
 import JobTitle from '../JobTitle';
 import ViewHoursButton from '../ViewHoursButton';
 import TimeData from '../TimeData';
+import API from '../../utils/API';
+import { toast } from 'react-toastify';
+
+
 
 
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
+
 
     return (
         <div
@@ -65,6 +70,9 @@ export default function SimpleTabs() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    toast.configure()
+
+
 
     return (
         <div className={classes.root}>
@@ -90,7 +98,7 @@ export default function SimpleTabs() {
 
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                       
+
                     </Grid>
                     <Grid item xs={12}>
                         <JobTitle />
@@ -132,12 +140,12 @@ export default function SimpleTabs() {
 
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                       <TimeData />
+                        <TimeData />
                     </Grid>
                 </Grid>
                 <br>
                 </br>
-                <Grid container spacing={3}> 
+                <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <ViewHoursButton />
                     </Grid>

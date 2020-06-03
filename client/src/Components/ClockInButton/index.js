@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { green, purple } from '@material-ui/core/colors';
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import API from '../../utils/API'
 //import Router from '../../../../routes/app'
 import './style.css'
 
@@ -66,21 +67,41 @@ const theme = createMuiTheme({
     primary: green,
   },
 });
+
 toast.configure()
 
+const handleFormSubmit = () => {
+  const current = Date.now()
+  console.log(current)
+  API.saveStartTime(current)
+      .then(res => {
+          toast.success('Clocked In Successfully!', {
+              position: "top-center",
+              autoClose: 1400,
+              hideProgressBar: true,
+              closeOnclick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
 
+      })
+      .catch(err => {
+          toast.error('Clock In Failed!', {
+              position: "top-center",
+              autoClose: 3000,
+              hideProgressBar: true,
+              closeOnclick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
 
-function clockIn() {
-   toast('Clocked In Successfully!', {
-     position: "top-center",
-     autoClose: 1400,
-     hideProgressBar: true,
-     closeOnclick: true,
-     pauseOnHover: true,
-     draggable: true,
-     progress: undefined,
-   });
+      })
 }
+
+
+
 
 export default function CustomizedButtons() {
   const classes = useStyles();
@@ -93,7 +114,8 @@ export default function CustomizedButtons() {
           variant="contained"
           color="primary"
           className={classes.margin}
-          onClick={clockIn}>
+          onClick={handleFormSubmit}
+          >
           Clockin
         </Button>
       </ThemeProvider>

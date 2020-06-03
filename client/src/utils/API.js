@@ -3,11 +3,8 @@ import axios from 'axios';
 
 
 export default {
-    saveStartTime: () => {
-        return axios.post('startTime/api', startTime)
+    saveStartTime: (data) => {
+        return axios.post('/api/clockin', data)
     },
 
-    saveEndTime: () => {
-        return axios.post('endTime/api', endTime)
-    }
 }
