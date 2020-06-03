@@ -1,6 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -11,8 +14,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+toast.configure()
+
 function clockOut() {
-  alert('clocked out successfully!')
+  toast('Clocked out Successfully!', {
+    position: "top-center",
+    autoClose: 1400,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+  
 }
 
 export default function ContainedButtons() {

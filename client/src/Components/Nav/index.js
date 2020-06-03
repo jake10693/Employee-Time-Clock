@@ -10,7 +10,6 @@ import MyClock from '../Clock';
 import Grid from '@material-ui/core/Grid';
 import ClockInButton from '../ClockInButton';
 import ClockOutButton from '../ClockOutButton';
-import EmployeeInput from '../EmployeeInput';
 import LunchButton from '../LunchButton';
 import Calendar from '../Calendar';
 import JobTitle from '../JobTitle';
@@ -91,7 +90,7 @@ export default function SimpleTabs() {
 
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                        <EmployeeInput />
+                       
                     </Grid>
                     <Grid item xs={12}>
                         <JobTitle />

@@ -2,6 +2,9 @@ import React from 'react';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { green, purple } from '@material-ui/core/colors';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+//import Router from '../../../../routes/app'
 import './style.css'
 
 const BootstrapButton = withStyles({
@@ -63,9 +66,20 @@ const theme = createMuiTheme({
     primary: green,
   },
 });
+toast.configure()
+
+
 
 function clockIn() {
-  alert('Clock in Successfully!')
+   toast('Clocked In Successfully!', {
+     position: "top-center",
+     autoClose: 1400,
+     hideProgressBar: true,
+     closeOnclick: true,
+     pauseOnHover: true,
+     draggable: true,
+     progress: undefined,
+   });
 }
 
 export default function CustomizedButtons() {
