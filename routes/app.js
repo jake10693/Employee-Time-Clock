@@ -6,4 +6,9 @@ router
     .route("/api/clockin")
     .post(controller.insertRecord)
 
+
+router
+   .route("/api/clockout")
+   .post(controller.insertRecord)
+
 module.exports = router;

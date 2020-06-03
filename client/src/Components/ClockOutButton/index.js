@@ -2,7 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
+import API from '../../utils/API'
 
 
 
@@ -14,20 +15,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-toast.configure()
 
-function clockOut() {
-  toast('Clocked out Successfully!', {
-    position: "top-center",
-    autoClose: 1400,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    });
-  
+
+toast.configure()
+const handleFormSubmit = () => {
+ 
+  setInterval(() => {
+   new Date()
+  }, 1000)
+  console.log(new Date)
+  API.saveEndTime()
+      .then(res => {
+          toast.success('Clock Out Successfull!', {
+              position: "top-center",
+              autoClose: 1400,
+              hideProgressBar: true,
+              closeOnclick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              
+            });
+       
+
+      })
+      .catch(err => {
+          toast.error('Clock Out Failed!', {
+              position: "top-center",
+              autoClose: 3000,
+              hideProgressBar: true,
+              closeOnclick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+
+      })
 }
+
+
 
 export default function ContainedButtons() {
   const classes = useStyles();
@@ -38,7 +64,7 @@ export default function ContainedButtons() {
       <Button
         variant="contained"
         color="secondary"
-        onClick={clockOut}>
+        onClick={handleFormSubmit}>
         clockout
       </Button>
 

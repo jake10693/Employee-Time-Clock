@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const ClockInSchema = new Schema({
     startTime: {
-        type: String
+        type: Date
     },
     endTime: {
-        type: String
+        type: Date
     }
 });
 

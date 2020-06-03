@@ -15,7 +15,6 @@ import Calendar from '../Calendar';
 import JobTitle from '../JobTitle';
 import ViewHoursButton from '../ViewHoursButton';
 import TimeData from '../TimeData';
-import API from '../../utils/API';
 import { toast } from 'react-toastify';
 
 
@@ -70,7 +69,7 @@ export default function SimpleTabs() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    toast.configure()
+   
 
 
 

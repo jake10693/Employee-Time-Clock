@@ -5,7 +5,6 @@ import { green, purple } from '@material-ui/core/colors';
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import API from '../../utils/API'
-//import Router from '../../../../routes/app'
 import './style.css'
 
 const BootstrapButton = withStyles({
@@ -71,33 +70,38 @@ const theme = createMuiTheme({
 toast.configure()
 
 const handleFormSubmit = () => {
-  const current = Date.now()
-  console.log(current)
-  API.saveStartTime(current)
-      .then(res => {
-          toast.success('Clocked In Successfully!', {
-              position: "top-center",
-              autoClose: 1400,
-              hideProgressBar: true,
-              closeOnclick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
 
-      })
-      .catch(err => {
-          toast.error('Clock In Failed!', {
-              position: "top-center",
-              autoClose: 3000,
-              hideProgressBar: true,
-              closeOnclick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
+  API.saveStartTime()
+    .then(res => {
+      setInterval(() => {
+        new Date()
+      }, 1000)
+      console.log(new Date)
+    })
+    .then(res => {
+      toast.success('Clocked In Successfully!', {
+        position: "top-center",
+        autoClose: 1400,
+        hideProgressBar: true,
+        closeOnclick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
 
-      })
+    })
+    .catch(err => {
+      toast.error('Clock In Failed!', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnclick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+
+    })
 }
 
 
@@ -115,7 +119,7 @@ export default function CustomizedButtons() {
           color="primary"
           className={classes.margin}
           onClick={handleFormSubmit}
-          >
+        >
           Clockin
         </Button>
       </ThemeProvider>
