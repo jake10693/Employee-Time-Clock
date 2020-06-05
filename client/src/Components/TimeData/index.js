@@ -17,8 +17,8 @@ export default function BasicTextFields() {
 
   return (
     <form className={classes.root} noValidate autoComplete="off" id="data">
-      <TextField id="standard-basic" label="Hours worked" />
-      <TextField id="standard-basic" label="Days Worked" />
+      <TextField id="standard-basic" label="View Punches" />
+      
       
     </form>
   );

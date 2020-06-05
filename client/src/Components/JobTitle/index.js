@@ -24,6 +24,23 @@ const jobTitles = [
   },
 ];
 
+
+const names = [
+  {
+    value:'something',
+    label: 'Nick',
+  },
+  {
+    value: 'else',
+    label: 'yeasir',
+  },
+  {
+    value: 'here',
+    label: 'Jake',
+  },
+
+];
+
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
@@ -40,10 +57,13 @@ export default function MultilineTextFields() {
   
   const classes = useStyles();
   const [jobTitle, setJobTitle] = React.useState('EUR');
+  const [name, setName] = React.useState('EUR')
 
   const handleChange = (event) => {
 
     setJobTitle(event.target.value);
+    setName(event.target.value)
+    
   };
 
   return (
@@ -52,9 +72,12 @@ export default function MultilineTextFields() {
 
         <TextField
           required id="standard-required"
-          helperText="Name"
           onChange={handleChange}
+          helperText="Name"
         />
+       
+        
+
         <TextField
           required id="standard-required"
           select

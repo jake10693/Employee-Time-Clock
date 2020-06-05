@@ -15,16 +15,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const times = {
+  startTime: '',
+  endTime: new Date
+}
 
 
 toast.configure()
 const handleFormSubmit = () => {
  
-  setInterval(() => {
-   new Date()
-  }, 1000)
   console.log(new Date)
-  API.saveEndTime()
+  API.saveEndTime(times)
       .then(res => {
           toast.success('Clock Out Successfull!', {
               position: "top-center",

@@ -67,19 +67,20 @@ const theme = createMuiTheme({
   },
 });
 
+const times = {
+  startTime: new Date,
+  endTime: ''
+}
+
+
 toast.configure()
 
 const handleFormSubmit = () => {
+  console.log(new Date)
 
-  API.saveStartTime()
+  API.saveStartTime(times)
     .then(res => {
-      setInterval(() => {
-        new Date()
-      }, 1000)
-      console.log(new Date)
-    })
-    .then(res => {
-      toast.success('Clocked In Successfully!', {
+      toast.success('Clock In Successfull!', {
         position: "top-center",
         autoClose: 1400,
         hideProgressBar: true,

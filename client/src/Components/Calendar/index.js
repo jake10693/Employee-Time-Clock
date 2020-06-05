@@ -12,7 +12,7 @@ class TimeData extends Component {
   render() {
     return (
       <div>
-        <h1>Check hours Here</h1>
+        <h1>Check Punches here</h1>
         <Calendar
           onChange={this.onChange}
           value={this.state.date}
