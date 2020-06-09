@@ -79,7 +79,7 @@ export default function SimpleTabs() {
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                     <Tab label="Punch in/out" {...a11yProps(0)} />
                     <Tab label="View punches" {...a11yProps(1)} />
-                    <Tab label="Admin" {...a11yProps(2)} />
+                    
                 </Tabs>
             </AppBar>
 
@@ -151,9 +151,7 @@ export default function SimpleTabs() {
                 </Grid>
             </TabPanel>
 
-            <TabPanel value={value} index={2}>
-                <AdminPage />
-      </TabPanel>
+      
         </div>
     );
 }

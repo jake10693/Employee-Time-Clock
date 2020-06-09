@@ -7,7 +7,7 @@ export default {
         return axios.post('/api/clockin', data)
     },
     saveEndTime: (data) => {
-        return axios.post('/api/clockin', data)
+        return axios.post('/api/clockout', data)
     },
 
 }
