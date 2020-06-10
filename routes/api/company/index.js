@@ -20,4 +20,10 @@ router.delete("/:id")
     // @access Public
     .delete(CompanyController.deleteCompany)
 
+router.route("/location")
+    // @route  POST api/company/location
+    // @desc   POST a new location
+    // @access Public
+    .post(CompanyController.addNewLocation)
+    
 module.exports = router;

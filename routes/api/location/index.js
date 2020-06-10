@@ -18,4 +18,7 @@ router.route("/:id")
     // @access Public
     .delete(LocationController.deleteLocation)
 
+router.route("/employee")
+    .post(LocationController.addNewEmployee)
+
 module.exports = router;

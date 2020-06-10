@@ -11,7 +11,7 @@ router.route("/")
     // @route  POST api/clockin
     // @desc   POST a new clockin
     // @access Public
-    .post(ClockInController.newClockIn)
+    //.post(ClockInController.clockInOut)
 
 router.route("/id")
     // @route  DELETE api/clockin:id
@@ -19,4 +19,10 @@ router.route("/id")
     // @access Public
     .delete(ClockInController.deleteClockin)
 
+router.route("/clockIn/:id")
+    //.post(ClockInController.clockIn)
+
+router.route("/clockOut")
+    .post(ClockInController.clockOut)
+    
 module.exports = router;

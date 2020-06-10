@@ -37,7 +37,7 @@ const CompanySchema = new Schema({
         required: [true, "a valid password is required!"],
         trim: true
     },
-    Locations: [{ type: Schema.Types.ObjectId, ref: "Location" }],
+    locations: [{ type: Schema.Types.ObjectId , ref: "Location" }],
     createdOn: {
         type: Date,
         default: Date.now

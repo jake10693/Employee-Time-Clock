@@ -4,15 +4,11 @@
     "startTime": {
       "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
     },
-    "endTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    }
+    "endTime": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
   },
   {
     "_id": "5edbfc50464ec03f32f7849c",
-    "startTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    },
+    "startTime": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)",
     "endTime": {
       "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
     }

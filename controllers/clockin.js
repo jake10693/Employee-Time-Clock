@@ -1,4 +1,5 @@
-const Company = require('../models/clockin');
+const Employee = require('../models/employee');
+const ClockIn = require('../models/clockin');
 
 module.exports = {
     getAllClockIns: (req, res) => {
@@ -16,5 +17,17 @@ module.exports = {
         .then(clockin => clockin.remove())
         .then(() => res.json({success: true}))
         .catch(err => res.status(404).json({success: false}));
+    },
+     clockIn: (req, res) => {
+        ClockIn.create(req.body)
+        .then(({ _id }) => {
+            Employee.findOneAndUpdate({},{$push: {startTime: value, role:{roleData}}}, {})
+        }
+        )
+    },
+    clockOut: (req, res) => {
+        res.send('Clocking out')
     }
 }
+
+//filter Data Options

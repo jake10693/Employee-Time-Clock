@@ -15,5 +15,16 @@ module.exports = {
         Location.findById(req.params.id)
         .then(location => location.remove().then(() => res.json({success: true})))
         .catch(err => res.status(404).json({success: false}));
+    },
+    addNewEmployee: (req, res) => {
+        let {id, ...rest} = req.body;
+        Location.findById(id)
+        .then( employee => {
+            employee.update({},{$push:{employees: rest}},{})
+            res.send("cool, done!")
+        })
+        .catch( err => {
+            res.send(err)
+        })
     }
 }

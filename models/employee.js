@@ -29,6 +29,9 @@ const EmployeeSchema = new Schema({
         trim: true
     },
     records: [{ type: Schema.Types.ObjectId, ref: "ClockIn" }],
+    lastClockInId: {
+        type: String
+    },
     createdOn: {
         type: Date,
         default: Date.now
