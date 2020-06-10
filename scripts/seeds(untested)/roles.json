@@ -1,182 +1,44 @@
 [
   {
-    "_id": "5edc01a488d9de9d21123e94",
-    "description": {
-      "type": "[object Object]",
-      "required": [true, "a role description is required!"],
-      "trim": true
-    },
-    "payRate": {
-      "type": "[object Object]",
-      "required": [true, "a last name is required!"],
-      "trim": true
-    },
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:50:44 GMT+0000 (UTC)",
-      "default": 1591476644348,
-      "required": true
-    }
+    "_id": "5ee05a589f142be227eefa15",
+    "description": "Incididunt velit ad eu anim eu mollit veniam esse Lorem et do dolor ex quis. Ullamco incididunt tempor enim ut nulla sunt id mollit sunt proident dolor qui mollit incididunt. Voluptate ullamco officia eu labore laborum dolor sunt laborum aute ut veniam consequat elit. Tempor aliqua aliqua qui et eu velit non laborum do duis quis ullamco. Quis sit dolor velit exercitation magna cupidatat nulla est sint veniam consectetur. Aliqua dolore elit do laborum non amet tempor ad sunt qui.\r\n",
+    "payRate": 40,
+    "createdOn": "2015-06-18T11:58:55 +07:00"
   },
   {
-    "_id": "5edc01a4df9df179b4d90c05",
-    "description": {
-      "type": "[object Object]",
-      "required": [true, "a role description is required!"],
-      "trim": true
-    },
-    "payRate": {
-      "type": "[object Object]",
-      "required": [true, "a last name is required!"],
-      "trim": true
-    },
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:50:44 GMT+0000 (UTC)",
-      "default": 1591476644348,
-      "required": true
-    }
+    "_id": "5ee05a58a305e85a9226fd9a",
+    "description": "Sint ut Lorem nisi elit elit ut incididunt nisi laborum non cupidatat. Nostrud eiusmod adipisicing quis voluptate officia consequat. Eiusmod ea deserunt ipsum enim id excepteur laborum minim adipisicing cillum eiusmod Lorem consectetur. Dolore mollit laborum duis labore voluptate dolore veniam eiusmod cillum occaecat elit laborum consequat irure. Nostrud officia quis sit commodo. In enim in amet ipsum elit aute adipisicing adipisicing adipisicing aute id.\r\n",
+    "payRate": 78,
+    "createdOn": "2016-11-20T08:19:18 +08:00"
   },
   {
-    "_id": "5edc01a48efbb8eae3e7454e",
-    "description": {
-      "type": "[object Object]",
-      "required": [true, "a role description is required!"],
-      "trim": true
-    },
-    "payRate": {
-      "type": "[object Object]",
-      "required": [true, "a last name is required!"],
-      "trim": true
-    },
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:50:44 GMT+0000 (UTC)",
-      "default": 1591476644348,
-      "required": true
-    }
+    "_id": "5ee05a58c078e52d9beb0c0e",
+    "description": "Excepteur fugiat veniam commodo sint elit proident laborum cillum quis consequat sunt veniam reprehenderit culpa. Id nulla eu aute laborum est enim minim. Eu Lorem ullamco pariatur aliquip ad laboris nulla. Est laboris proident reprehenderit id velit enim dolor quis ea laboris magna.\r\n",
+    "payRate": 33,
+    "createdOn": "2017-11-06T06:47:45 +08:00"
   },
   {
-    "_id": "5edc01a47b9de85ab8659f0d",
-    "description": {
-      "type": "[object Object]",
-      "required": [true, "a role description is required!"],
-      "trim": true
-    },
-    "payRate": {
-      "type": "[object Object]",
-      "required": [true, "a last name is required!"],
-      "trim": true
-    },
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:50:44 GMT+0000 (UTC)",
-      "default": 1591476644348,
-      "required": true
-    }
+    "_id": "5ee05a582bfb451a652c69dd",
+    "description": "Lorem in eiusmod voluptate ea dolore ipsum excepteur dolore aliqua sint magna ad deserunt. Occaecat aliquip sunt nulla excepteur anim ullamco aliqua culpa est duis esse mollit. Ut culpa dolor cupidatat cupidatat consectetur nostrud veniam magna id deserunt quis laborum. Lorem officia consectetur dolore commodo tempor enim. Duis fugiat labore ad dolore. Officia amet incididunt adipisicing cillum officia ea deserunt aliquip in ullamco dolor cupidatat duis tempor. Incididunt cupidatat nisi irure excepteur veniam velit reprehenderit.\r\n",
+    "payRate": 71,
+    "createdOn": "2018-11-06T09:43:37 +08:00"
   },
   {
-    "_id": "5edc01a407e9108e6b754830",
-    "description": {
-      "type": "[object Object]",
-      "required": [true, "a role description is required!"],
-      "trim": true
-    },
-    "payRate": {
-      "type": "[object Object]",
-      "required": [true, "a last name is required!"],
-      "trim": true
-    },
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:50:44 GMT+0000 (UTC)",
-      "default": 1591476644348,
-      "required": true
-    }
+    "_id": "5ee05a58ed314b133d6f1f59",
+    "description": "Eu officia laboris quis cillum minim occaecat duis laborum. Labore sit non fugiat laborum sunt dolore ullamco nisi adipisicing. Dolore aliqua mollit voluptate deserunt excepteur. Deserunt ullamco ipsum nulla sunt consectetur nisi qui.\r\n",
+    "payRate": 59,
+    "createdOn": "2014-08-27T10:28:22 +07:00"
   },
   {
-    "_id": "5edc01a476c9c5ccdc5bd6aa",
-    "description": {
-      "type": "[object Object]",
-      "required": [true, "a role description is required!"],
-      "trim": true
-    },
-    "payRate": {
-      "type": "[object Object]",
-      "required": [true, "a last name is required!"],
-      "trim": true
-    },
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:50:44 GMT+0000 (UTC)",
-      "default": 1591476644348,
-      "required": true
-    }
+    "_id": "5ee05a58213e0290ddadbdf5",
+    "description": "Non dolore minim sint incididunt exercitation sint occaecat veniam dolor proident incididunt proident aliquip. Ipsum id fugiat minim id anim velit excepteur dolor do culpa. Ex laborum esse fugiat commodo nulla sunt elit. Commodo ex ad do dolore duis officia eiusmod nulla laborum ad reprehenderit ipsum ut. Cupidatat mollit veniam non irure est. Magna proident excepteur non cillum voluptate anim do cillum aliquip consectetur.\r\n",
+    "payRate": 68,
+    "createdOn": "2019-12-13T07:35:30 +08:00"
   },
   {
-    "_id": "5edc01a42e63ba09ed7a9329",
-    "description": {
-      "type": "[object Object]",
-      "required": [true, "a role description is required!"],
-      "trim": true
-    },
-    "payRate": {
-      "type": "[object Object]",
-      "required": [true, "a last name is required!"],
-      "trim": true
-    },
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:50:44 GMT+0000 (UTC)",
-      "default": 1591476644348,
-      "required": true
-    }
-  },
-  {
-    "_id": "5edc01a41c2f227e781f9976",
-    "description": {
-      "type": "[object Object]",
-      "required": [true, "a role description is required!"],
-      "trim": true
-    },
-    "payRate": {
-      "type": "[object Object]",
-      "required": [true, "a last name is required!"],
-      "trim": true
-    },
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:50:44 GMT+0000 (UTC)",
-      "default": 1591476644348,
-      "required": true
-    }
-  },
-  {
-    "_id": "5edc01a4658e4a0133355383",
-    "description": {
-      "type": "[object Object]",
-      "required": [true, "a role description is required!"],
-      "trim": true
-    },
-    "payRate": {
-      "type": "[object Object]",
-      "required": [true, "a last name is required!"],
-      "trim": true
-    },
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:50:44 GMT+0000 (UTC)",
-      "default": 1591476644348,
-      "required": true
-    }
-  },
-  {
-    "_id": "5edc01a4905a10fbbcaa0e51",
-    "description": {
-      "type": "[object Object]",
-      "required": [true, "a role description is required!"],
-      "trim": true
-    },
-    "payRate": {
-      "type": "[object Object]",
-      "required": [true, "a last name is required!"],
-      "trim": true
-    },
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:50:44 GMT+0000 (UTC)",
-      "default": 1591476644348,
-      "required": true
-    }
+    "_id": "5ee05a582e1e49bc14f3cbae",
+    "description": "Eiusmod ipsum ad amet sint minim dolor adipisicing tempor proident amet elit in aliqua elit. Aliqua ipsum occaecat proident occaecat aliquip nostrud incididunt ea eiusmod Lorem non veniam sunt. Aliquip nostrud aliqua ullamco quis eiusmod consequat enim dolor aute culpa qui deserunt dolore. Laboris eiusmod qui incididunt anim excepteur duis officia qui voluptate anim irure occaecat.\r\n",
+    "payRate": 91,
+    "createdOn": "2015-04-05T02:06:52 +07:00"
   }
 ]

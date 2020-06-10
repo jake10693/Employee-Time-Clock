@@ -1,128 +1,68 @@
 [
   {
-    "_id": "5edc00f6b148c2d88178493a",
-    "locationName": {
-      "type": "[object Object]",
-      "required": [true, "a location name is required!"],
-      "trim": true
-    },
-    "address": "[object Object]",
-    "city": "[object Object]",
-    "state": "[object Object]",
-    "postalCode": "[object Object]",
-    "phone": "[object Object]",
-    "employees": [],
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:47:50 GMT+0000 (UTC)",
-      "default": 1591476470651
-    }
+    "_id": "5ee05d67977f9dc69d27db22",
+    "locationName": "Hamilton",
+    "address": "681 Ferry Place",
+    "city": "Slovan",
+    "state": "District Of Columbia",
+    "postalCode": 6341,
+    "phone": "+1 (843) 558-2097",
+    "employees": "add manually",
+    "createdOn": "2016-10-08T08:11:27 +07:00"
   },
   {
-    "_id": "5edc00f6b205e70446d05dff",
-    "locationName": {
-      "type": "[object Object]",
-      "required": [true, "a location name is required!"],
-      "trim": true
-    },
-    "address": "[object Object]",
-    "city": "[object Object]",
-    "state": "[object Object]",
-    "postalCode": "[object Object]",
-    "phone": "[object Object]",
-    "employees": [],
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:47:50 GMT+0000 (UTC)",
-      "default": 1591476470652
-    }
+    "_id": "5ee05d6770b6124f4fac5193",
+    "locationName": "Iberia",
+    "address": "409 Woodbine Street",
+    "city": "Alderpoint",
+    "state": "Kentucky",
+    "postalCode": 4001,
+    "phone": "+1 (898) 521-3954",
+    "employees": "add manually",
+    "createdOn": "2014-03-26T05:53:21 +07:00"
   },
   {
-    "_id": "5edc00f6b73b0bd6bab6bb75",
-    "locationName": {
-      "type": "[object Object]",
-      "required": [true, "a location name is required!"],
-      "trim": true
-    },
-    "address": "[object Object]",
-    "city": "[object Object]",
-    "state": "[object Object]",
-    "postalCode": "[object Object]",
-    "phone": "[object Object]",
-    "employees": [],
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:47:50 GMT+0000 (UTC)",
-      "default": 1591476470652
-    }
+    "_id": "5ee05d67671f9895bd2f4584",
+    "locationName": "Kingstowne",
+    "address": "480 Townsend Street",
+    "city": "Brogan",
+    "state": "Northern Mariana Islands",
+    "postalCode": 4577,
+    "phone": "+1 (835) 439-3824",
+    "employees": "add manually",
+    "createdOn": "2018-10-29T01:31:59 +07:00"
   },
   {
-    "_id": "5edc00f61e2a0ca38ea6ee4d",
-    "locationName": {
-      "type": "[object Object]",
-      "required": [true, "a location name is required!"],
-      "trim": true
-    },
-    "address": "[object Object]",
-    "city": "[object Object]",
-    "state": "[object Object]",
-    "postalCode": "[object Object]",
-    "phone": "[object Object]",
-    "employees": [],
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:47:50 GMT+0000 (UTC)",
-      "default": 1591476470652
-    }
+    "_id": "5ee05d679452a70b31129400",
+    "locationName": "Sunbury",
+    "address": "916 Williams Court",
+    "city": "Springdale",
+    "state": "Michigan",
+    "postalCode": 6267,
+    "phone": "+1 (872) 430-2646",
+    "employees": "add manually",
+    "createdOn": "2014-04-10T02:35:00 +07:00"
   },
   {
-    "_id": "5edc00f6d65d5408b6599033",
-    "locationName": {
-      "type": "[object Object]",
-      "required": [true, "a location name is required!"],
-      "trim": true
-    },
-    "address": "[object Object]",
-    "city": "[object Object]",
-    "state": "[object Object]",
-    "postalCode": "[object Object]",
-    "phone": "[object Object]",
-    "employees": [],
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:47:50 GMT+0000 (UTC)",
-      "default": 1591476470652
-    }
+    "_id": "5ee05d671da3a086ae238bae",
+    "locationName": "Trail",
+    "address": "260 Tompkins Avenue",
+    "city": "Coventry",
+    "state": "Mississippi",
+    "postalCode": 1675,
+    "phone": "+1 (893) 494-2464",
+    "employees": "add manually",
+    "createdOn": "2014-01-04T09:36:49 +08:00"
   },
   {
-    "_id": "5edc00f6ec4a1aa5536424a0",
-    "locationName": {
-      "type": "[object Object]",
-      "required": [true, "a location name is required!"],
-      "trim": true
-    },
-    "address": "[object Object]",
-    "city": "[object Object]",
-    "state": "[object Object]",
-    "postalCode": "[object Object]",
-    "phone": "[object Object]",
-    "employees": [],
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:47:50 GMT+0000 (UTC)",
-      "default": 1591476470652
-    }
-  },
-  {
-    "_id": "5edc00f64052e093228edf21",
-    "locationName": {
-      "type": "[object Object]",
-      "required": [true, "a location name is required!"],
-      "trim": true
-    },
-    "address": "[object Object]",
-    "city": "[object Object]",
-    "state": "[object Object]",
-    "postalCode": "[object Object]",
-    "phone": "[object Object]",
-    "employees": [],
-    "createdOn": {
-      "type": "Sat Jun 06 2020 20:47:50 GMT+0000 (UTC)",
-      "default": 1591476470652
-    }
+    "_id": "5ee05d674971c05d403ec022",
+    "locationName": "Hobucken",
+    "address": "246 Gates Avenue",
+    "city": "Kaka",
+    "state": "Puerto Rico",
+    "postalCode": 4117,
+    "phone": "+1 (995) 464-2513",
+    "employees": "add manually",
+    "createdOn": "2016-01-09T03:16:21 +08:00"
   }
 ]

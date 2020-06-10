@@ -1,83 +1,65 @@
 [
   {
-    "_id": "5edbfc50d92ae25b24796e1c",
-    "startTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    },
-    "endTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    }
+    "_id": "5ee066a071d7de02e6a6fc70",
+    "startTime": "2019-01-14T05:08:31 +08:00",
+    "endTime": "2018-05-06T07:18:15 +07:00",
+    "role": "role-manually",
+    "location": "location-manually",
+    "coordinates": "26.118788 -105.532298",
+    "createdOn": "2018-06-25T06:33:39 +07:00"
   },
   {
-    "_id": "5edbfc50464ec03f32f7849c",
-    "startTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    },
-    "endTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    }
+    "_id": "5ee066a02a026d7e54225f64",
+    "startTime": "2017-07-02T09:23:55 +07:00",
+    "endTime": "2014-12-12T03:35:41 +08:00",
+    "role": "role-manually",
+    "location": "location-manually",
+    "coordinates": "68.078441 -34.751789",
+    "createdOn": "2020-01-04T02:27:55 +08:00"
   },
   {
-    "_id": "5edbfc50225860d096c48a80",
-    "startTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    },
-    "endTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    }
+    "_id": "5ee066a07ff60a1a43797ab2",
+    "startTime": "2015-08-02T07:37:36 +07:00",
+    "endTime": "2016-06-12T12:29:33 +07:00",
+    "role": "role-manually",
+    "location": "location-manually",
+    "coordinates": "38.313723 -34.416961",
+    "createdOn": "2016-01-25T11:01:10 +08:00"
   },
   {
-    "_id": "5edbfc50d26cfd97d9246554",
-    "startTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    },
-    "endTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    }
+    "_id": "5ee066a0d3f5b7fe5ca72707",
+    "startTime": "2018-07-28T05:01:30 +07:00",
+    "endTime": "2017-03-16T01:09:07 +07:00",
+    "role": "role-manually",
+    "location": "location-manually",
+    "coordinates": "-59.631089 25.825242",
+    "createdOn": "2018-10-08T07:30:23 +07:00"
   },
   {
-    "_id": "5edbfc50d9b5c70b2eaaeb45",
-    "startTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    },
-    "endTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    }
+    "_id": "5ee066a05512304000809665",
+    "startTime": "2020-03-18T10:14:12 +07:00",
+    "endTime": "2017-10-11T02:04:24 +07:00",
+    "role": "role-manually",
+    "location": "location-manually",
+    "coordinates": "48.321769 26.269415",
+    "createdOn": "2020-04-03T11:44:46 +07:00"
   },
   {
-    "_id": "5edbfc50480224d39867dd22",
-    "startTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    },
-    "endTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    }
+    "_id": "5ee066a0ab1a0928487af427",
+    "startTime": "2019-11-12T04:18:20 +08:00",
+    "endTime": "2018-11-07T10:12:06 +08:00",
+    "role": "role-manually",
+    "location": "location-manually",
+    "coordinates": "18.638943 -49.790082",
+    "createdOn": "2017-12-31T05:14:56 +08:00"
   },
   {
-    "_id": "5edbfc50011a19aec6e06d1c",
-    "startTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    },
-    "endTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    }
-  },
-  {
-    "_id": "5edbfc50d359b1a4a9351a37",
-    "startTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    },
-    "endTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    }
-  },
-  {
-    "_id": "5edbfc5034745850d24b088f",
-    "startTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    },
-    "endTime": {
-      "type": "Sat Jun 06 2020 20:28:00 GMT+0000 (UTC)"
-    }
+    "_id": "5ee066a0a4b71da3078e7c28",
+    "startTime": "2014-01-25T02:09:56 +08:00",
+    "endTime": "2019-08-03T03:31:41 +07:00",
+    "role": "role-manually",
+    "location": "location-manually",
+    "coordinates": "77.945235 126.352383",
+    "createdOn": "2018-07-24T06:19:22 +07:00"
   }
 ]
