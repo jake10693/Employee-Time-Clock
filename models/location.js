@@ -12,11 +12,9 @@ const LocationSchema = new Schema({
     state: String,
     postalCode: String,
     phone: String,
-    employees: [{ type: Schema.Types.ObjectId, ref: "Employee" }],
-    createdOn: {
-        type: Date,
-        default: Date.now
-    }
+    employees: [{ type: Schema.Types.ObjectId, ref: "Employee" }]
+},{
+    timestamps:true
 });
 
 const Location = mongoose.model("Location", LocationSchema);

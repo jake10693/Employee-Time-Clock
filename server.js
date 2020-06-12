@@ -20,9 +20,8 @@ mongoose.connect
   .then(() => console.log('Mongoose has sucessfully connected to MongoDB!'))
   .catch((err) => console.log('There was an issue connecting to MongoDB'));
 
-//app.use(require("./routes/static"));
+app.use(require("./routes/static"));
 app.use("/api/clockin", require("./routes/api/clockin"));
-app.use("/api/company", require("./routes/api/company"));
 app.use("/api/employee", require("./routes/api/employee"));
 app.use("/api/location", require("./routes/api/location"));
 app.use("/api/role", require("./routes/api/role"));
