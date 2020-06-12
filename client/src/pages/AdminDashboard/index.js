@@ -119,7 +119,7 @@ function AdminDashboard() {
         setAuthContext()
         history.push("/");
     }
-
+    
     const localToken = localStorage.getItem("user_token")
 
     if (localToken) {
