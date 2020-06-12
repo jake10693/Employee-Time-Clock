@@ -25,6 +25,7 @@ const EmployeeSchema = new Schema({
     },
     pin: {
         type: Number,
+        default: 0000,
         required: [true, "a pin is required!"],
         trim: true
     },

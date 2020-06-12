@@ -14,6 +14,10 @@ router.route("/:id")
     // @access Public
     .get(EmployeeController.getOneEmployee)
 
-
+router.route("/pop/:id")
+    // @route  GET api/employee/pop/:id
+    // @desc   GET profile & clock in/out records
+    // @access Public
+    .get(EmployeeController.getPopulatedEmployee)
 
 module.exports = router;

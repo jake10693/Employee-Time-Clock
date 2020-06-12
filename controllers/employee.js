@@ -25,5 +25,17 @@ module.exports = {
         .catch(err => {
             res.status(400).json(err)
         })
+    },
+    getPopulatedEmployee: (req, res) => {
+        let id = req.params.id;
+
+        db.Employee.findById(id)
+        .populate("records")
+        .then(emply => {
+            res.status(200).json(emply)
+        })
+        .catch(err => {
+            res.status(400).json(err)
+        })
     }
 }
