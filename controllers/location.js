@@ -31,11 +31,11 @@ module.exports = {
 
         db.Location.findById(id)
         .populate("employees")
-        .then( res => {
-           res.status(200).json("res")
+        .then(location => {
+            res.status(200).json(location.employees)
         })
-        .catch( err => {
+        .catch(err => {
             res.status(400).json(err)
         })
-    }
+    },
 }
