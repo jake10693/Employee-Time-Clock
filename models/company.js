@@ -37,11 +37,9 @@ const CompanySchema = new Schema({
         required: [true, "a valid password is required!"],
         trim: true
     },
-    Locations: [{ type: Schema.Types.ObjectId, ref: "Location" }],
-    createdOn: {
-        type: Date,
-        default: Date.now
-    }
+    location: [{ type: Schema.Types.ObjectId, ref: "Location" }]
+},{
+    timestamps: true
 });
 
 const Company = mongoose.model("Company", CompanySchema);

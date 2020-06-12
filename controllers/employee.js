@@ -1,25 +1,29 @@
-const Employee = require('../models/employee');
+const db = require('../models');
 
 module.exports = {
-    getAllEmployees: (req, res) => {
-        Employee.find()
-        .sort({date: -1 })
-        .then(employees => res.json(employees))
+    newEmployee: (req, res) => {
+        let { locationId , ...payload } = req.body;
+
+        db.Employee.create(payload)
+        .then(({_id}) => {
+           return db.Location.findOneAndUpdate(locationId, {$push:{employees: _id}},{new: true})
+        })
+        .then(() => {
+            res.status(201).json({success: true})
+        })
+        .catch((err) => {
+            res.status(422).json({success: false})
+        })
     },
     getOneEmployee: (req, res) => {
-         Employee.findOne({id})
-         .then(employee => res.json(employee))
-     
-    },
-    newEmployee: (req, res) => {
-        const newEmployee = new Employee(res.body.employee);
+        let id = req.params.id;
 
-        newEmployee.save().then(employee => res.json(employee));
-    },
-    deleteEmployee: (req, res) => {
-        Employee.findById(req.params.id)
-        .then(employee => employee.remove())
-        .then(() => res.json({success: true}))
-        .catch(err => res.status(404).json({success: false}));
+        db.Employee.findById(id)
+        .then(person => {
+            res.status(200).json(person)
+        })
+        .catch(err => {
+            res.status(400).json(err)
+        })
     }
 }

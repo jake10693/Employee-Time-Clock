@@ -9,14 +9,12 @@ const ClockInSchema = new Schema({
     },
     endTime: {
         type: String,
-        required: [true, "an end time is required!"],
         trim: true
     },
     role: {
-        type: Object,
-        required: [true, "you must select atleast one role!"]
+        type: Object
     },
-    location: {
+    locationData: {
         type: {
             type: String,
             enum: ['Point'],
@@ -26,11 +24,9 @@ const ClockInSchema = new Schema({
             type: [Number],
             required: false
         }
-    },
-    createdOn: {
-        type: Date,
-        default: Date.now
     }
+},{
+    timestamps: true
 });
 
 const ClockIn = mongoose.model("ClockIn", ClockInSchema);

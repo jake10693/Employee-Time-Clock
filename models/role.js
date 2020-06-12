@@ -11,12 +11,9 @@ const RoleSchema = new Schema({
         type: String,
         required: [true, "a last name is required!"],
         trim: true
-    },
-    createdOn: {
-        type: Date,
-        default: Date.now,
-        required: true
     }
+},{
+    timestamps:true
 });
 
 const Role = mongoose.model("Role", RoleSchema);

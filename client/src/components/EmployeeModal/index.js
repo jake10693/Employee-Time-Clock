@@ -73,7 +73,7 @@ export default function TransitionModal(props) {
                             <TextField id="standard-basic" label="Email" />
                             <br></br>
                             <br></br>
-                            <Button size="small" variant="contained" color="primary" onClick={click}>
+                            <Button size="small" variant="contained" color="primary" id="submit" onClick={click}>
                                 Submit
                         </Button>
 

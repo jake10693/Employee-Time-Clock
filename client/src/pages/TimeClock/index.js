@@ -18,7 +18,6 @@ import Grid from '@material-ui/core/Grid';
 import AnalogClock from '../../components/AnalogClock';
 import Copyright from '../../components/Copyright'
 import Calendar from '../../components/Calendar';
-import API from '../../utils/Api'
 import './style.css';
 
 function TabPanel(props) {

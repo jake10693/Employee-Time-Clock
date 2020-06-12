@@ -29,10 +29,9 @@ const EmployeeSchema = new Schema({
         trim: true
     },
     records: [{ type: Schema.Types.ObjectId, ref: "ClockIn" }],
-    createdOn: {
-        type: Date,
-        default: Date.now
-    }
+    lastClockId: String
+},{
+    timestamps:true
 });
 
 const Employee = mongoose.model("Employee", EmployeeSchema);
