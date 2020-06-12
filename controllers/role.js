@@ -7,6 +7,10 @@ module.exports = {
         .sort({createdOn: -1 })
         .then(roles => res.json(roles))
     },
+    getOneRole: (req, res) => {
+        Role.findOne({id})
+        .then(role => res.json(role))
+    },
     createNewRole: (req, res) => {
         Employee.findOne({firstName: "Vernon"})
         .then(Employee.Role.push(req.body))

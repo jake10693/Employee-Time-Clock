@@ -23,6 +23,7 @@ import Avatar from '@material-ui/core/Avatar';
 import AvatarImg from './placeholder_large.png';
 import DashboardContent from '../../components/DashboardContent';
 import LocationList from '../../components/LocationsList';
+import EmployeeList from '../../components/EmployeeList';
 
 const drawerWidth = 240;
 
@@ -207,6 +208,7 @@ function AdminDashboard() {
 
             <Route exact path="/admin/dashboard" component={DashboardContent} />
             <Route exact path="/admin/dashboard/locations" component={LocationList} />
+            <Route exact path="/admin/dashboard/employees" component={EmployeeList} />
 
           <Box pt={4}>
             <Copyright />

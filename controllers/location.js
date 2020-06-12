@@ -1,6 +1,15 @@
 const db = require('../models');
 
 module.exports = {
+    getAllLocations: (req, res) => {
+        Location.find()
+        .sort({date: -1 })
+        .then(locations => res.json(locations))
+    },
+    getOneLocation: (req, res) => {
+        Location.findOne({id})
+        .then(location => res.json(location))
+    },
     createNewLocation: (req, res) => {
         let { companyId , ...payload } = req.body;
 

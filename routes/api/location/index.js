@@ -9,8 +9,12 @@ router.route("/")
     .post(LocationController.createNewLocation)
 
 router.route("/:id")
-    // @route  POST api/location
-    // @desc   Post locationId on body to return location data
+    // @route  getOneLocation api/location:id
+    // @desc   GET one location
+    // @access Public
+    .get(LocationController.getOneLocation)
+    // @route  Delete api/locations:id
+    // @desc   Delete a Location
     // @access Public
     .get(LocationController.getOneLocation)
 

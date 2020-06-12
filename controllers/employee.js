@@ -1,6 +1,16 @@
 const db = require('../models');
 
 module.exports = {
+    getAllEmployees: (req, res) => {
+        Employee.find()
+        .sort({date: -1 })
+        .then(employees => res.json(employees))
+    },
+    getOneEmployee: (req, res) => {
+         Employee.findOne({id})
+         .then(employee => res.json(employee))
+     
+    },
     newEmployee: (req, res) => {
         let { locationId , ...payload } = req.body;
 
