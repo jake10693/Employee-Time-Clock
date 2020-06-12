@@ -6,6 +6,11 @@ module.exports = {
         .sort({date: -1 })
         .then(employees => res.json(employees))
     },
+    getOneEmployee: (req, res) => {
+         Employee.findOne({id})
+         .then(employee => res.json(employee))
+     
+    },
     newEmployee: (req, res) => {
         const newEmployee = new Employee(res.body.employee);
 

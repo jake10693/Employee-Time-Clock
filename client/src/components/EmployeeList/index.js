@@ -20,8 +20,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
-import Modal from '../../components/Modal'
-
+import EmployeeModal from '../EmployeeModal'
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -70,20 +69,12 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: 'name', numeric: false, disablePadding: true, label: 'Company Name' },
-  { id: 'calories', numeric: true, disablePadding: false, label: 'Street Adress' },
-  { id: 'fat', numeric: true, disablePadding: false, label: 'City' },
-  { id: 'carbs', numeric: true, disablePadding: false, label: 'State' },
-  { id: 'protein', numeric: true, disablePadding: false, label: 'Zip Code' },
+  { id: 'name', numeric: false, disablePadding: true, label: 'First Name' },
+  { id: 'calories', numeric: true, disablePadding: false, label: 'Last Name' },
+  { id: 'fat', numeric: true, disablePadding: false, label: 'Phone Number' },
+  { id: 'carbs', numeric: true, disablePadding: false, label: 'Adress' },
+  { id: 'protein', numeric: true, disablePadding: false, label: 'Email' },
 ];
-
-
-
-
- 
-
-
-
 
 function EnhancedTableHead(props) {
   const { classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
@@ -93,7 +84,7 @@ function EnhancedTableHead(props) {
 
   return (
     <TableHead>
-      <Modal />
+        <EmployeeModal />
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
@@ -175,7 +166,7 @@ const EnhancedTableToolbar = (props) => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-          Locations
+            Employee List
         </Typography>
       )}
 
@@ -224,7 +215,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LocationList() {
+export default function EnhancedTable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');

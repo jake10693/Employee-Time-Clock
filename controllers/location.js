@@ -6,6 +6,10 @@ module.exports = {
         .sort({date: -1 })
         .then(locations => res.json(locations))
     },
+    getOneLocation: (req, res) => {
+        Location.findOne({id})
+        .then(location => res.json(location))
+    },
     createNewLocation: (req, res) => {
         const newLocation = new Location(res.body.location);
 

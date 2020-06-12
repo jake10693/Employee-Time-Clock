@@ -9,6 +9,10 @@ router.route("/")
     .get(RoleController.getAllRoles)
 
 router.route("/")
+    // @route  Get one role api/roles:id
+    // @desc   GET one role
+    // @access Public
+    .get(RoleController.getOneRole)
     // @route  POST api/roles/:id
     // @desc   POST new role to employee
     // @access Public

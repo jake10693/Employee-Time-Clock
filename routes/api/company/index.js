@@ -14,7 +14,11 @@ router.route("/")
     // @access Public
     .post(CompanyController.addNewCompany)
 
-router.delete("/:id")
+router.route("/:id")
+    // @route findOne company api/company:id
+    // @desc find a company
+    // @access Public
+    .get(CompanyController.getOneCompany)
     // @route  Delete api/company:id
     // @desc   Delete a company
     // @access Public

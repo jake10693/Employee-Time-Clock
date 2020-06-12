@@ -8,6 +8,11 @@ module.exports = {
         .then(companies => res.json(companies))
         .catch(err => console.log(err))
     },
+    getOneCompany: (req, res) => {
+        Company.findOne({id})
+        .then(companies => res.json(companies))
+        .catch(err => console.log(err))
+    },
     addNewCompany: (req, res) =>{
         const newCompany = new Company(res.body.company);
 

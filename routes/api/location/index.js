@@ -13,6 +13,10 @@ router.route("/")
     .post(LocationController.createNewLocation)
 
 router.route("/:id")
+    // @route  getOneLocation api/location:id
+    // @desc   GET one location
+    // @access Public
+    .get(LocationController.getOneLocation)
     // @route  Delete api/locations:id
     // @desc   Delete a Location
     // @access Public

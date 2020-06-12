@@ -6,6 +6,10 @@ module.exports = {
         .sort({date: -1 })
         .then(clockins => res.json(clockins))
     },
+    getOneClockin: (req, res) => {
+         Clockin.findOne({id})
+         .then(Clockin => res.json(Clockin))
+    },
     newClockIn: (req, res) => {
         const newClockIn = new ClockIn(res.body.clockin);
 

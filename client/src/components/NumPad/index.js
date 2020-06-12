@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -15,8 +15,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 toast.configure()
 function click() {
-    toast.success("clicked")      
+    console.log(e => this.props.onClick(e.target.value))      
 }
+
+
 
 export default function OutlinedButtons() {
     const classes = useStyles();
@@ -25,7 +27,6 @@ export default function OutlinedButtons() {
         <div className={classes.root}>
             <Grid container spacing={3} id="container">
                 <h2>Enter Pin</h2>
-
                 <Grid item xs={12} id="seven">
                     <Button size="large" variant="outlined" id="seven-a" value="7" onClick={click}>7</Button>
                     <Button size="large" variant="outlined" id="eight" value="8" onClick={click}>8</Button>

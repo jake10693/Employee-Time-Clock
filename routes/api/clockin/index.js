@@ -14,6 +14,10 @@ router.route("/")
     .post(ClockInController.newClockIn)
 
 router.route("/id")
+    // @route  getOne api/clockin:id
+    // @route  get one clockin record
+    // @access Public
+    .get(ClockInController.getOneClockin)
     // @route  DELETE api/clockin:id
     // @desc   DELETE a clockin record
     // @access Public
