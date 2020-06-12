@@ -4,19 +4,10 @@ const ClockInController = require('../../../controllers/clockin')
 
 
 router.route("/")
-    // @route  GET api/clockin
-    // @desc   GET all clockins
-    // @access Public
-    .get(ClockInController.getAllClockIns)
     // @route  POST api/clockin
-    // @desc   POST a new clockin
+    // @desc   POST clockin data
     // @access Public
-    .post(ClockInController.newClockIn)
+    .post(ClockInController.clockInOut)
 
-router.route("/id")
-    // @route  DELETE api/clockin:id
-    // @desc   DELETE a clockin record
-    // @access Public
-    .delete(ClockInController.deleteClockin)
 
 module.exports = router;
