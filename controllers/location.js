@@ -25,5 +25,17 @@ module.exports = {
         .catch(err => {
             res.status(400).json(err)
         })
+    },
+    getLocationEmployees: (req, res) => {
+        let id = req.params.id;
+
+        db.Location.findById(id)
+        .populate("employees")
+        .then( res => {
+           res.status(200).json("res")
+        })
+        .catch( err => {
+            res.status(400).json(err)
+        })
     }
 }

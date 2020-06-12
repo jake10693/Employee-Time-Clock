@@ -9,9 +9,15 @@ router.route("/")
     .post(LocationController.createNewLocation)
 
 router.route("/:id")
-    // @route  POST api/location
-    // @desc   Post locationId on body to return location data
+    // @route  GET api/location
+    // @desc   attach locationId to req.body to return location data
     // @access Public
     .get(LocationController.getOneLocation)
+
+router.route("/employees/:id")
+    // @route  GET api/location/employees/:id
+    // @desc   add location id to params to get list of employees
+    // @access Public
+    .get(LocationController.getLocationEmployees)
 
 module.exports = router;

@@ -5,7 +5,7 @@ const ClockInController = require('../../../controllers/clockin')
 
 router.route("/")
     // @route  POST api/clockin
-    // @desc   POST clockin data
+    // @desc   POST employee id & role to record clock in/out
     // @access Public
     .post(ClockInController.clockInOut)
 

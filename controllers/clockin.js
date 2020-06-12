@@ -1,5 +1,4 @@
 const db = require('../models');
-const { Employee } = require('../models');
 
 module.exports = {
     clockInOut : (req, res) => {
@@ -10,38 +9,35 @@ module.exports = {
             if(!person.lastClockId){
                 db.ClockIn.create({startTime: Date.now(), role: body})
                 .then(({_id}) => {
-                    person.update({
+                    person.updateOne({
                         $set: {lastClockId: _id},
                         $push:{records: _id}
                     })
-                    .then((response) => {
-                        console.log(response)
+                    .then(() => {
+                        res.status(201).json({success: true, message: "Sucessfully Clocked In"})
+                    })
+                    .catch(() => {
+                        res.status(400).json({success: false, message: "There was an issue handling your clock in request!"})
                     })
                 })
             } else {
-                console.log("awsome!")
+                db.ClockIn.findById(person.lastClockId)
+                .then( clock => {
+                    return clock.updateOne({$set:{endTime: Date.now()}})
+                })
+                .then(() => {
+                    return person.updateOne({$set:{lastClockId: null}})
+                })
+                .then(() => {
+                    res.status(201).json({success: true, message: "Sucessfully Clocked Out"})
+                })
+                .catch( err => {
+                    res.status(400).json({success: false, message: "There was an issue handling your clock out request!"})
+                })
             }
         })
-        .catch(err =>{
-            console.log(err)
+        .catch( err => {
+            res.status(400).json({success: false, message: "Server Error: Unable to locate user"})
         })
     }
 }
-
-/*            //Find employee by ID
-new db.ClockIn({startDate: Date.now, role: body.role})
-          Employee.findById(req.body.employee.id)
-         .then(employee => {
-             //Check if employee is clocked in
-             if(!employee.isclocked) {
-                // if not clocked in create new clock in
-                 const newclockin = new ClockinModel({date: date.now, role: req.body.role.id })
-                 // and save clock in and clocked in state to employee
-                 employee.update($set { $push records[newclockin.id], isclocked: newclockin.id, })
-             } else {
-                 //if clocked in update clock in clocked out time
-                 Clockin.findandupdate(id = isclocked, {clock = date.now})
-                 //update employee state to null
-                 employee.update(isclocked = null)
-             }
-         })   */
