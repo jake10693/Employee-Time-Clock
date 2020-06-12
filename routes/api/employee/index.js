@@ -9,12 +9,8 @@ router.route("/")
     .post(EmployeeController.newEmployee)
     
 router.route("/:id")
-    // @route  getOneEmployee api/employee:id
-    // @desc   Find one employee
-    // @access Public
-    .get(EmployeeController.getOneEmployee)
-    // @route  DELETE api/employee:id
-    // @desc   DELETE an employee
+    // @route  GET api/employee/:id
+    // @desc   GET profile for single employee
     // @access Public
     .get(EmployeeController.getOneEmployee)
 
