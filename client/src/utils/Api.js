@@ -13,4 +13,7 @@ export default {
   newClockIn: (data) => {
     return axios.post("/api/newclockin", data)
   }, 
+  newEmployee: (data) => {
+    return axios.post("/api/newemployee", data)
+  }, 
 };

@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 function click() {
     alert("fuck it")
+    
 }
 
 export default function TransitionModal(props) {
