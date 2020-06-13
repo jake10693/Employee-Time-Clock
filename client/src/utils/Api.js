@@ -9,5 +9,8 @@ export default {
   },
   getUserData: (data, config) =>{
     return axios.post("/api/auth/user", data, config)
+  },
+  verifyLocation: (id) => {
+    return axios.get(`/api/location/${id}`)
   }
 };

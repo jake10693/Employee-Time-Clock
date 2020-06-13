@@ -1,18 +1,19 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import './style.css';
 import DigitalClock from '../../components/DigitialClock'
 import ClockInList from '../../components/ClockInList'
+import SetLocation from '../../components/SetLocation'
+import './style.css';
 
 function Kiosk(){
     return(
-        <Grid container>
+        <Grid container className="grid-container">
             
-            <Grid item xs={false} sm={6} md={6} className="clock-grid grid">
+            <Grid item xs={false} sm={6} md={6} className="clock-grid">
                 <DigitalClock />
             </Grid>
 
-            <Grid item xs={12} sm={6} md={6} elevation={6} className="grid">
+            <Grid item xs={12} sm={6} md={6}>
                 <ClockInList />
             </Grid>
         </Grid>

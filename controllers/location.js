@@ -23,7 +23,7 @@ module.exports = {
             res.status(200).json(location)
         })
         .catch(err => {
-            res.status(400).json(err)
+            res.status(400).json({success: false})
         })
     },
     getLocationEmployees: (req, res) => {

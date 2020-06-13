@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import './style.css'
 
 class DigitalClock extends React.Component {
 
@@ -22,14 +23,14 @@ class DigitalClock extends React.Component {
         const { time } = this.state; // retrieve the time from state
 
         return (
-            <>   
-                <Typography variant="h5" component="h2">
+            <div className="timer">   
+                <Typography variant="h5" component="h2" className="font">
                     {time.toLocaleDateString()}
                 </Typography>
-                <Typography variant="h2" component="h2">
+                <Typography variant="h2" component="h2" className="font">
                     {time.toLocaleTimeString()}
                 </Typography>
-            </>
+            </div>
         );
     }
 }

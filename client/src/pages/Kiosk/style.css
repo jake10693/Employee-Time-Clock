@@ -1,13 +1,10 @@
 .clock-grid{
     background-color: #3f51b5;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    padding-left: 5%;
-    flex-direction: column;
+    position: relative;
 }
 
-.grid{
+.grid-container{
     min-height: 100vh;
 }
 
