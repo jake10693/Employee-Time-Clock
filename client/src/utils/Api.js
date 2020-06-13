@@ -11,7 +11,7 @@ export default {
     return axios.post("/api/auth/user", data, config)
   },
   clockInOut: (data) => {
-    return axios.post("/api/newclockin", data)
+    return axios.post("/api/clockin", data)
   }, 
   createNewLocation: (data) => {
     return axios.post('/api/createnewlocation', data)
