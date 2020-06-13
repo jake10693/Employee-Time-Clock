@@ -9,7 +9,7 @@ router.route("/")
     .post(LocationController.createNewLocation)
 
 router.route("/:id")
-    // @route  GET api/location
+    // @route  GET api/location/:id
     // @desc   attach locationId to req.body to return location data
     // @access Public
     .get(LocationController.getOneLocation)
