@@ -10,10 +10,7 @@ export default {
   getUserData: (data, config) =>{
     return axios.post("/api/auth/user", data, config)
   },
-  newClockIn: (data) => {
-    return axios.post("/api/newclockin", data)
-  }, 
-  newEmployee: (data) => {
-    return axios.post("/api/newemployee", data)
-  }, 
+  verifyLocation: (id) => {
+    return axios.get(`/api/location/${id}`)
+  }
 };
