@@ -12,5 +12,8 @@ export default {
   },
   verifyLocation: (id) => {
     return axios.get(`/api/location/${id}`)
+  },
+  retrieveEmployees: (locId) => {
+    return axios.get(`api/location/employees/${locId}`)
   }
 };

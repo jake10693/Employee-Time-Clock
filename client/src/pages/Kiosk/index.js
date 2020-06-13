@@ -1,11 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
-import DigitalClock from '../../components/DigitialClock'
-import ClockInList from '../../components/ClockInList'
-import SetLocation from '../../components/SetLocation'
+import DigitalClock from '../../components/DigitialClock';
+import ClockInList from '../../components/ClockInList';
+import SetLocation from '../../components/SetLocation';
+import Loader from '../../components/Loader';
+import API from '../../utils/Api'
 import './style.css';
 
 function Kiosk(){
+   
+    const [locationId, setLocationID] = useState();
+    const [redirect, setRedirect] = useState("load");
+    const [employees, setEmployees] = useState();
+    const [load, setLoad] = useState(true);
+
+    useEffect(() =>{
+        const local = localStorage.getItem("locationId");
+        setLocationID(local);
+        
+        if(locationId){
+            API.retrieveEmployees(locationId)
+            .then(res =>{
+                setLoad()
+                setEmployees(res.data)
+                setRedirect("list")
+            })
+            .catch(err =>{
+                console.log(err)
+                setRedirect("list")
+            })
+        }
+    },[locationId])
+
+    let render;
+        
+    if (redirect === "list") {
+        render = <ClockInList emply={employees}/>
+    } else if (redirect === "load") {
+        render = <Loader />
+    }
+    
     return(
         <Grid container className="grid-container">
             
@@ -14,7 +48,7 @@ function Kiosk(){
             </Grid>
 
             <Grid item xs={12} sm={6} md={6}>
-                <ClockInList />
+                {render}
             </Grid>
         </Grid>
     )

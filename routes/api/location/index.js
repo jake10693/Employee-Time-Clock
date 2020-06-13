@@ -20,4 +20,10 @@ router.route("/employees/:id")
     // @access Public
     .get(LocationController.getLocationEmployees)
 
+router.route("/company/:id")
+    // @route  GET api/location/employees/:id
+    // @desc   add company id to params to get list of locations
+    // @access Public
+    .get(LocationController.getAllLocation)
+
 module.exports = router;
