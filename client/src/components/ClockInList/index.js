@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -6,7 +6,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
+import Loader from '../../components/Loader';
 import PersonIcon from '@material-ui/icons/Person';
+import API from '../../utils/Api'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,54 +22,56 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ClockInList(props) {
-  const classes = useStyles();
-    console.log()
-  return (
-      <div>
+function ClockInList() {
+    const classes = useStyles();
+
+    const [locationId, setLocationID] = useState(null);
+    const [employees, setEmployees] = useState([]);
+    const [loading, setLoading] = useState(true)
+    
+    useEffect(() => {
+        
+        let local = localStorage.getItem("locationId")
+        setLocationID(local)
+        
+        if (locationId) {
+            API.retrieveEmployees(locationId)
+            .then(res =>{
+                setEmployees(res.data)
+                setLoading(false)
+            })
+            .catch(err =>{
+                setLoading(false)
+                console.log(err)
+            })
+        }
+
+    },[locationId])
+        
+    return (
+        <>
         <List component="nav" className={classes.root}>
-        <ListItem button className={classes.listItems}>
-            <ListItemAvatar>
-                <Avatar>
-                    <PersonIcon />
-                </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Nick Adams" secondary="" />
-        </ListItem>
-        <Divider />
-
-        <ListItem button className={classes.listItems}>
-            <ListItemAvatar>
-            <Avatar>
-                <PersonIcon />
-            </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Jacob Carver" secondary="" />
-        </ListItem>
-        <Divider />
-
-        <ListItem button className={classes.listItems}>
-            <ListItemAvatar>
-            <Avatar>
-                <PersonIcon />
-            </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Mike Shev" secondary="" />
-        </ListItem>
-        <Divider />
-
-        <ListItem button className={classes.listItems}>
-            <ListItemAvatar>
-            <Avatar>
-                <PersonIcon />
-            </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Yeasir Hugais" secondary="" />
-        </ListItem>
-        <Divider />
+            {
+                loading ? <Loader /> :
+                employees.map( employee => {
+                    return(
+                        <div key={employee._id}>
+                            <ListItem button className={classes.listItems}>
+                                <ListItemAvatar>
+                                    <Avatar>
+                                        <PersonIcon />
+                                    </Avatar>
+                                </ListItemAvatar>
+                                <ListItemText primary={`${employee.firstName} ${employee.lastName}`} secondary="" />
+                            </ListItem>
+                            <Divider />
+                        </div>
+                    )
+                })
+            }
         </List>
-    </div>
-  );
+        </>
+    );
 }
 
 export default ClockInList;

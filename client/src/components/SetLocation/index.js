@@ -7,26 +7,26 @@ import Alert from '@material-ui/lab/Alert';
 import API from '../../utils/Api';
 import './style.css';
 
-function SetLocation() {
+function SetLocation(props) {
     
     const [errors, setErrors] = useState(null)
     const [id, setId] = useState(null)
-
-    useEffect(()=>{
-    if (id) {
-        API.verifyLocation(id)
-        .then( res => {
-            if (res.status === 200) {
-                localStorage.setItem("locationId", id)
-            } else {
-                console.log(res)
-            }
-        })
-        .catch( err => {
-            setErrors("Unable to find that location")
-        })
-    }
-    },[id])
+    const { redirect } = props;
+    
+    useEffect(() => {
+        if (id) {
+            API.verifyLocation(id)
+            .then( res => {
+                if (res.status === 200) {
+                    localStorage.setItem("locationId", id)
+                    redirect("list")
+                }
+            })
+            .catch( err => {
+                setErrors("Unable to find that location, please make sure you have the correct location ID!")
+            })
+        }
+    }, [id, redirect])
 
     let inputValue;
 
@@ -36,7 +36,7 @@ function SetLocation() {
     }
 
     const handleChange = (event) => {
-        inputValue = event.target.value
+        inputValue = event.target.value.trim()
         setErrors(null)
     }
 

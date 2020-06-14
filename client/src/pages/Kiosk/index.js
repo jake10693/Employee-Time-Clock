@@ -4,40 +4,36 @@ import DigitalClock from '../../components/DigitialClock';
 import ClockInList from '../../components/ClockInList';
 import SetLocation from '../../components/SetLocation';
 import Loader from '../../components/Loader';
-import API from '../../utils/Api'
 import './style.css';
 
-function Kiosk(){
+function Kiosk() {
    
     const [locationId, setLocationID] = useState();
     const [redirect, setRedirect] = useState("load");
-    const [employees, setEmployees] = useState();
-    const [load, setLoad] = useState(true);
 
-    useEffect(() =>{
-        const local = localStorage.getItem("locationId");
+    useEffect(() => {
+        let local = localStorage.getItem("locationId")
         setLocationID(local);
         
-        if(locationId){
-            API.retrieveEmployees(locationId)
-            .then(res =>{
-                setLoad()
-                setEmployees(res.data)
-                setRedirect("list")
-            })
-            .catch(err =>{
-                console.log(err)
-                setRedirect("list")
-            })
+        if (locationId) {
+            setRedirect("list")
+        } else {
+            setRedirect("location")
         }
-    },[locationId])
+    }, [locationId])
 
     let render;
-        
-    if (redirect === "list") {
-        render = <ClockInList emply={employees}/>
-    } else if (redirect === "load") {
+
+    if (redirect === "load") {
         render = <Loader />
+    } else if (redirect === "list") {
+        render = <ClockInList />
+    } else if (redirect === "location"){
+        render = <SetLocation redirect={redirectFromChildComp}/>
+    }
+
+    function redirectFromChildComp(value){
+        setRedirect(value)
     }
     
     return(
