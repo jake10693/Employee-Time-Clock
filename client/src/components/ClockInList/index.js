@@ -8,7 +8,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import Loader from '../../components/Loader';
 import PersonIcon from '@material-ui/icons/Person';
-import API from '../../utils/Api'
+import API from '../../utils/Api';
+import NumPad from '../../components/NumPad';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,6 +48,11 @@ function ClockInList() {
         }
 
     },[locationId])
+
+    const handleClick = (event) => {
+        let clicked = event.currentTarget.id
+        console.log(clicked)
+    }
         
     return (
         <>
@@ -56,13 +62,13 @@ function ClockInList() {
                 employees.map( employee => {
                     return(
                         <div key={employee._id}>
-                            <ListItem button className={classes.listItems}>
+                            <ListItem button id={employee._id} onClick={handleClick} className={classes.listItems}>
                                 <ListItemAvatar>
                                     <Avatar>
                                         <PersonIcon />
                                     </Avatar>
                                 </ListItemAvatar>
-                                <ListItemText primary={`${employee.firstName} ${employee.lastName}`} secondary="" />
+                                <ListItemText primary={`${employee.firstName} ${employee.lastName}`} />
                             </ListItem>
                             <Divider />
                         </div>
