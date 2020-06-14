@@ -51,5 +51,3 @@ function Kiosk() {
 }
 
 export default Kiosk;
-
-//<Link to="/timeclock"><h1>-->John Doe (TESTING)</h1></Link>

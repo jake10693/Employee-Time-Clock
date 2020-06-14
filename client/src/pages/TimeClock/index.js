@@ -18,7 +18,9 @@ import Grid from '@material-ui/core/Grid';
 import AnalogClock from '../../components/AnalogClock';
 import Copyright from '../../components/Copyright'
 import Calendar from '../../components/Calendar';
+import API from '../../utils/Api';
 import './style.css';
+import { TableSortLabel } from '@material-ui/core';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -73,15 +75,26 @@ function TimeClock() {
   const classes = useStyles();
   const [value, setValue] = useState(0);
   const [buttonState, setButtonState] = useState(false); 
+  const [startTime, setStartTime] = useState();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+
+
   function onSubmit(event){
     event.preventDefault();
   }
 
+  //useEffect(() => {
+    //API.clockInOut(startTime) 
+    //.then(res => console.log(res.data))
+    //.catch(err => console.log(err))
+  //}, [startTime])
+  
+
+  
   function test() {
     if (buttonState === false) {
         setButtonState(true)

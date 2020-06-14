@@ -29,12 +29,16 @@ export const mainListItems = (
     </ListItem>
     </Link>
     
+    <Link to="/admin/dashboard/employees" style={{ color: 'inherit', textDecoration: 'inherit'}}>
     <ListItem button>
       <ListItemIcon>
         <GroupAddIcon />
       </ListItemIcon>
       <ListItemText primary="Employees" />
     </ListItem>
+    </Link>
+
+
     <ListItem button>
       <ListItemIcon>
         <BarChartIcon />
