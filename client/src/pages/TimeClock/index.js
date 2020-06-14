@@ -69,12 +69,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TimeClock() {
+function TimeClock(props) {
   toast.configure()
+  const userId = props.location.state.id
+
+  const [message, setMessage] = useState(null)
 
   const classes = useStyles();
   const [value, setValue] = useState(0);
-  const [buttonState, setButtonState] = useState(false); 
+  const [buttonState, setButtonState] = useState(false);
   const [startTime, setStartTime] = useState();
 
   const handleChange = (event, newValue) => {
@@ -83,25 +86,27 @@ function TimeClock() {
 
 
 
-  function onSubmit(event){
+  function onSubmit(event) {
     event.preventDefault();
   }
 
-  useEffect(() => {
-    API.clockInOut(startTime) 
-    .then(res => setStartTime(res.data))
-    .catch(err => console.log(err))
-  }, [startTime])
-  
+  function handleClick() {
 
-  
-  function test() {
-    if (buttonState === false) {
-        setButtonState(true)
-        toast.success("Your now clocked in")
+    API.clockInOut({ id: userId })
+      .then(res => {
+        console.log(res)
+        setMessage(res.data.message)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
+    if (buttonState === false && message === "Sucessfully Clocked Out") {
+      setButtonState(true)
+      toast.success("Your now clocked in")
     } else {
-        setButtonState(false)
-        toast.error("Your now clocked out")
+      setButtonState(false)
+      toast.error("Your now clocked out")
     }
   }
 
@@ -114,25 +119,25 @@ function TimeClock() {
           <Tab label="Settings" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
-      
+
       <Grid container direction="row" justify="center" alignItems="center">
         <TabPanel value={value} index={0} >
           <Box textAlign="center" m={3} className="name-text">
-            <Typography> 
+            <Typography>
               John Smith
             </Typography>
           </Box>
 
           <Box textAlign="center" m={3} className="name-text">
             {
-            buttonState ? 
-            <Typography className="center status-green"><TimerIcon />Clocked In</Typography> : 
-            <Typography className="center status-red"><TimerOffIcon />Clocked Out</Typography>
+              buttonState ?
+                <Typography className="center status-green"><TimerIcon />Clocked In</Typography> :
+                <Typography className="center status-red"><TimerOffIcon />Clocked Out</Typography>
             }
           </Box>
 
           <Box className="center">
-              <AnalogClock />
+            <AnalogClock />
           </Box>
 
           <FormControl variant="outlined" className={classes.formControl} onSubmit={onSubmit}>
@@ -150,23 +155,23 @@ function TimeClock() {
             </Select>
           </FormControl>
 
-          <Button variant="contained" color="primary" onClick={test} className="full-width">
-            {buttonState ?  "Clock Out" : "Clock In"}
+          <Button variant="contained" color="primary" onClick={handleClick} className="full-width">
+            {buttonState ? "Clock Out" : "Clock In"}
           </Button>
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-            <Box className="center">
-              <Calendar />
-            </Box>
+          <Box className="center">
+            <Calendar />
+          </Box>
         </TabPanel>
 
         <TabPanel value={value} index={2}>
           <Box className="center">
-              <Typography >
-                Comming Soon!
+            <Typography >
+              Comming Soon!
               </Typography>
-            </Box>
+          </Box>
         </TabPanel>
       </Grid>
       <Copyright />

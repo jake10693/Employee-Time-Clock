@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
+import { Redirect } from 'react-router-dom'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -29,6 +30,8 @@ function ClockInList() {
     const [locationId, setLocationID] = useState(null);
     const [employees, setEmployees] = useState([]);
     const [loading, setLoading] = useState(true)
+    const [change, setChange] = useState(false)
+    const [userId, setUserId] = useState('')
     
     useEffect(() => {
         
@@ -49,13 +52,18 @@ function ClockInList() {
 
     },[locationId])
 
+ 
+
     const handleClick = (event) => {
-        let clicked = event.currentTarget.id
-        console.log(clicked)
+        let id = event.currentTarget.id
+        setUserId(id)
     }
         
     return (
         <>
+        {userId ? <Redirect to={{
+            pathname:"/timeclock", state:{id: userId }
+        }} /> :
         <List component="nav" className={classes.root}>
             {
                 loading ? <Loader /> :
@@ -75,7 +83,7 @@ function ClockInList() {
                     )
                 })
             }
-        </List>
+        </List>}
         </>
     );
 }

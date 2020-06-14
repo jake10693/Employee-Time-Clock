@@ -6,26 +6,7 @@ import SetLocation from '../../components/SetLocation';
 import Loader from '../../components/Loader';
 import './style.css';
 
-<<<<<<< HEAD
-const employee = [
-    {
-        "name": "Nick Adams",
-
-    },
-    {
-        "name": "Yeasir Huigas" 
-    },
-    {
-        "name": "Jacob Carver"
-    },
-    {
-        "name": "Mike Shev"
-    }
-]
-function Kiosk(){
-=======
 function Kiosk() {
->>>>>>> 59af167de3e8003fd347fb5fb10fe59ea05578b4
    
     const [locationId, setLocationID] = useState();
     const [redirect, setRedirect] = useState("load");
