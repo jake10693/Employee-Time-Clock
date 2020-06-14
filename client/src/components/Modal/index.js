@@ -27,20 +27,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function click() {
-    alert("fuck it")
+    alert('fuck it')
 
 }
 
 export default function TransitionModal(props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-
+   
     const handleOpen = () => {
         setOpen(true)
     };
     const handleClose = () => {
         setOpen(false)
     };
+     
 
     return (
         <div>

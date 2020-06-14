@@ -20,9 +20,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ClockInList() {
+function ClockInList(props) {
   const classes = useStyles();
-
+    console.log()
   return (
       <div>
         <List component="nav" className={classes.root}>

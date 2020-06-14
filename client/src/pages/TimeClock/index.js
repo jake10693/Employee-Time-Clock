@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -87,11 +87,11 @@ function TimeClock() {
     event.preventDefault();
   }
 
-  //useEffect(() => {
-    //API.clockInOut(startTime) 
-    //.then(res => console.log(res.data))
-    //.catch(err => console.log(err))
-  //}, [startTime])
+  useEffect(() => {
+    API.clockInOut(startTime) 
+    .then(res => setStartTime(res.data))
+    .catch(err => console.log(err))
+  }, [startTime])
   
 
   

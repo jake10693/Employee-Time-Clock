@@ -38,4 +38,16 @@ module.exports = {
             res.status(400).json(err)
         })
     },
+    getAllLocation: (req, res) => {
+        let companyId = req.params.id;
+
+        db.Company.findById(companyId)
+        .populate("location")
+        .then(location => {
+            res.json(location.location)
+        })
+        .catch(err => {
+            res.status(400).json(err)
+        })
+    }
 }
