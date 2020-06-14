@@ -10,6 +10,7 @@ import Loader from '../../components/Loader';
 import PersonIcon from '@material-ui/icons/Person';
 import API from '../../utils/Api';
 import NumPad from '../../components/NumPad';
+import {Redirect} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,6 +30,7 @@ function ClockInList() {
     const [locationId, setLocationID] = useState(null);
     const [employees, setEmployees] = useState([]);
     const [loading, setLoading] = useState(true)
+    const [userId, setUserId] = useState('')
     
     useEffect(() => {
         
@@ -49,13 +51,16 @@ function ClockInList() {
 
     },[locationId])
 
+
     const handleClick = (event) => {
-        let clicked = event.currentTarget.id
-        console.log(clicked)
+        let id = event.currentTarget.id
+        setUserId(id)
     }
-        
+
+    
     return (
         <>
+        {userId ? <Redirect to={{pathname: '/timeclock', state:{id: userId} }} /> :
         <List component="nav" className={classes.root}>
             {
                 loading ? <Loader /> :
@@ -75,7 +80,7 @@ function ClockInList() {
                     )
                 })
             }
-        </List>
+        </List>}
         </>
     );
 }

@@ -24,7 +24,7 @@ import { TableSortLabel } from '@material-ui/core';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
+  
   return (
     <div
       role="tabpanel"
@@ -69,12 +69,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TimeClock() {
+function TimeClock(props) {
   toast.configure()
+  
+  const userId = props.location.state.id
+
+  const [message, setMessage] = useState(null);
 
   const classes = useStyles();
   const [value, setValue] = useState(0);
-  const [buttonState, setButtonState] = useState(false); 
+  const [state, setState] = useState(false); 
   const [startTime, setStartTime] = useState();
 
   const handleChange = (event, newValue) => {
@@ -86,23 +90,23 @@ function TimeClock() {
   function onSubmit(event){
     event.preventDefault();
   }
-
-  //useEffect(() => {
-    //API.clockInOut(startTime) 
-    //.then(res => console.log(res.data))
-    //.catch(err => console.log(err))
-  //}, [startTime])
   
+  function handleClick() {
+    
+    API.clockInOut({id: userId}) 
+    .then(res => {
+      console.log(res)
+      setMessage(res.data.message)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
-  
-  function test() {
-    if (buttonState === false) {
-        setButtonState(true)
-        toast.success("Your now clocked in")
-    } else {
-        setButtonState(false)
-        toast.error("Your now clocked out")
-    }
+  if (message === "Sucessfully Clocked In") {
+    toast.success("Your now clocked in")
+  } else if (message === "Sucessfully Clocked Out") {
+    toast.error("Your now clocked out")
   }
 
   return (
@@ -125,7 +129,7 @@ function TimeClock() {
 
           <Box textAlign="center" m={3} className="name-text">
             {
-            buttonState ? 
+            state ? 
             <Typography className="center status-green"><TimerIcon />Clocked In</Typography> : 
             <Typography className="center status-red"><TimerOffIcon />Clocked Out</Typography>
             }
@@ -150,8 +154,8 @@ function TimeClock() {
             </Select>
           </FormControl>
 
-          <Button variant="contained" color="primary" onClick={test} className="full-width">
-            {buttonState ?  "Clock Out" : "Clock In"}
+          <Button variant="contained" color="primary" onClick={handleClick} className="full-width">
+            {state ?  "Clock Out" : "Clock In"}
           </Button>
         </TabPanel>
 
