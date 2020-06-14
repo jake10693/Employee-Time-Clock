@@ -1,58 +1,46 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import "./style.css"
-import { toast } from 'react-toastify';
 
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    },
-}));
-toast.configure()
-function click() {
-    console.log(e => this.props.onClick(e.target.value))      
+function handleClick(event) {
+    let key = event.currentTarget.value;
+    console.log(key)
+    event.stopPropagation()
 }
 
-
-
-export default function OutlinedButtons() {
-    const classes = useStyles();
-
+ function NumPad() {
     return (
-        <div className={classes.root}>
-            <Grid container spacing={3} id="container">
-                <h2>Enter Pin</h2>
-                <Grid item xs={12} id="seven">
-                    <Button size="large" variant="outlined" id="seven-a" value="7" onClick={click}>7</Button>
-                    <Button size="large" variant="outlined" id="eight" value="8" onClick={click}>8</Button>
-                    <Button size="large" variant="outlined" id="nine" value="9" onClick={click}>9</Button>
+        <div className="num-container">
+            <Typography variant="h1" component="h2">****</Typography>
+
+            <Grid container>
+                <Grid item xs={12}>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary" value="7" onClick={handleClick}>7</Button>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary" value="8" onClick={handleClick}>8</Button>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary" value="9" onClick={handleClick}>9</Button>
                 </Grid>
-                <Grid item xs={12} id="four">
-                    <Button size="large" variant="outlined" id="four-a" value="4" onClick={click}>4</Button>
-                    <Button size="large" variant="outlined" id="five" value="5" onClick={click}>5</Button>
-                    <Button size="large" variant="outlined" id="six" value="6" onClick={click}>6</Button>
+                <Grid item xs={12}>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary" value="4" onClick={handleClick}>4</Button>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary" value="5" onClick={handleClick}>5</Button>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary" value="6" onClick={handleClick}>6</Button>
                 </Grid>
-                <Grid item xs={12} id="one">
-                    <Button size="large" variant="outlined" id="one-a" value="1" onClick={click}>1</Button>
-                    <Button size="large" variant="outlined" id="two" value="2" onClick={click}>2</Button>
-                    <Button size="large" variant="outlined" id="three" value="3" onClick={click}>3</Button>
+                <Grid item xs={12}>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary" value="1" onClick={handleClick}>1</Button>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary" value="2" onClick={handleClick}>2</Button>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary" value="3" onClick={handleClick}>3</Button>
                 </Grid>
-                <Grid item xs={12} id="symbols">
-                    <Button size="large" variant="outlined" id="def-1" onClick={click}>*</Button>
-                    <Button size="large" variant="outlined" id="zero" value="0" onClick={click}>0</Button>
-                    <Button size="large" variant="outlined" id="def-1" onClick={click}>#</Button>
+                <Grid item xs={12}>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary"/>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary" value="0" onClick={handleClick}>0</Button>
+                    <Button className="num-buttons" size="large" variant="contained" color="primary"/>
                 </Grid>
             </Grid>
-
         </div>
     );
 }
 
 
-
+export default NumPad
 

@@ -15,5 +15,14 @@ export default {
   },
   retrieveEmployees: (locId) => {
     return axios.get(`api/location/employees/${locId}`)
+<<<<<<< HEAD
+=======
+  },
+  clockInOut: (body) => {
+    return axios.post("/api/clockin", body)
+  }, 
+  createNewLocation: (data) => {
+    return axios.post('/api/createnewlocation', data)
+>>>>>>> 59af167de3e8003fd347fb5fb10fe59ea05578b4
   }
 };

@@ -116,7 +116,7 @@ function AdminDashboard() {
     const {authContext, setAuthContext} = useContext(AuthContext);
 
     const logout = () => {
-        localStorage.clear();
+        localStorage.removeItem("user_token");
         setAuthContext()
         history.push("/");
     }

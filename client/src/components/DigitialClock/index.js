@@ -23,7 +23,7 @@ class DigitalClock extends React.Component {
         const { time } = this.state; // retrieve the time from state
 
         return (
-            <div className="timer">   
+            <div className="d-timer">   
                 <Typography variant="h5" component="h2" className="font">
                     {time.toLocaleDateString()}
                 </Typography>
