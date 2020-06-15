@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -7,7 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import { toast } from 'react-toastify';
+//import { toast } from 'react-toastify';
 import TimerOffIcon from '@material-ui/icons/TimerOff';
 import TimerIcon from '@material-ui/icons/Timer';
 import FormControl from '@material-ui/core/FormControl';
@@ -70,32 +70,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TimeClock(props) {
-  toast.configure()
   
   const userId = props.location.state.id
 
-  const [message, setMessage] = useState(null);
-
   const classes = useStyles();
+  
+  const [message, setMessage] = useState(null);
   const [value, setValue] = useState(0);
-  const [state, setState] = useState(false); 
-  const [startTime, setStartTime] = useState();
+  const [state, setState] = useState(null); 
+  const [name, setName] = useState("loading...");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-
 
   function onSubmit(event){
     event.preventDefault();
   }
   
   function handleClick() {
-    
     API.clockInOut({id: userId}) 
     .then(res => {
-      console.log(res)
       setMessage(res.data.message)
     })
     .catch(err => {
@@ -103,11 +98,18 @@ function TimeClock(props) {
     })
   }
 
-  if (message === "Sucessfully Clocked In") {
-    toast.success("Your now clocked in")
-  } else if (message === "Sucessfully Clocked Out") {
-    toast.error("Your now clocked out")
-  }
+  useEffect(()=>{
+    API.getOneEmployee(userId) 
+    .then(res => {
+      console.log(res)
+      setState(res.data.lastClockId)
+      setName(`${res.data.firstName} ${res.data.lastName}`)
+    })
+    .catch(err => {
+      console.log(err)
+      setState(null)
+    })
+  },[message])
 
   return (
     <Box className={classes.root}>
@@ -123,7 +125,7 @@ function TimeClock(props) {
         <TabPanel value={value} index={0} >
           <Box textAlign="center" m={3} className="name-text">
             <Typography> 
-              John Smith
+              {name}
             </Typography>
           </Box>
 
