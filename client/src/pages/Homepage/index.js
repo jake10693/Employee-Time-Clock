@@ -14,7 +14,7 @@ function HomePage(){
     const isAuth = localStorage.getItem("user_token")
 
     const loggedOut = (
-        <Link to="/admin/login" className="links">
+        <Link to="/login" className="links">
             <Button variant="outlined" color="primary">
                 Login
             </Button>
@@ -22,7 +22,7 @@ function HomePage(){
     )
     
     const loggedIn = (
-        <Link to="/admin/dashboard" className="links">
+        <Link to="/dashboard" className="links">
             <Button variant="outlined" color="primary">
                 Dashboard
             </Button>

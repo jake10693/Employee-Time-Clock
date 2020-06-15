@@ -14,7 +14,7 @@ export default {
     return axios.get(`/api/location/${id}`)
   },
   retrieveEmployees: (locId) => {
-    return axios.get(`api/location/employees/${locId}`)
+    return axios.get(`/api/location/employees/${locId}`)
   },
   clockInOut: (body) => {
     return axios.post("/api/clockin", body)
@@ -23,6 +23,9 @@ export default {
     return axios.post('/api/location', body)
   },
   getOneEmployee: (id) => {
-    return axios.get(`api/employee/${id}`)
+    return axios.get(`/api/employee/${id}`)
+  },
+  getAllLocations: (id) => {
+    return axios.get(`/api/location/company/${id}`)
   }
 };

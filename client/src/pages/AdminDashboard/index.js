@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Route, useHistory } from "react-router-dom";
+import { Route, useHistory, Switch } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 import Loader from '../../components/Loader'
 import API from '../../utils/Api';
@@ -146,7 +146,7 @@ function AdminDashboard() {
             setAuthContext()
         })
     } else {
-        history.push("/admin/login");
+        history.push("/login");
     }
 
   const classes = useStyles();
@@ -205,11 +205,11 @@ function AdminDashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-
-            <Route exact path="/admin/dashboard" component={DashboardContent} />
-            <Route exact path="/admin/dashboard/locations" component={LocationList} />
-            <Route exact path="/admin/dashboard/employees" component={EmployeeList} />
-
+          <Switch>
+            <Route exact path="/dashboard" component={DashboardContent} />
+            <Route path="/dashboard/locations" component={LocationList} />
+            <Route path="/dashboard/employees" component={EmployeeList} />
+          </Switch>
           <Box pt={4}>
             <Copyright />
           </Box>

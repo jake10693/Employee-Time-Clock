@@ -21,7 +21,7 @@ router.route("/employees/:id")
     .get(LocationController.getLocationEmployees)
 
 router.route("/company/:id")
-    // @route  GET api/location/employees/:id
+    // @route  GET api/location/company/:id
     // @desc   add company id to params to get list of locations
     // @access Public
     .get(LocationController.getAllLocation)

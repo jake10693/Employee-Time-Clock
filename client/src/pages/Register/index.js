@@ -62,7 +62,7 @@ function SignUp() {
         setErrorMsg(null)
         let token = res.data.user.token
         localStorage.setItem("user_token", token);
-        history.push("/admin/dashboard");
+        history.push("/dashboard");
     })
     .catch( err => {
         const errMsg = `Somthing went wrong! Error: ${err.res.status}`
@@ -223,7 +223,7 @@ function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link to="/admin/login" variant="body2">
+              <Link to="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
