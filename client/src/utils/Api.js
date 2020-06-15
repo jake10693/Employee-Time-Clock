@@ -21,5 +21,6 @@ export default {
   }, 
   createNewLocation: (data) => {
     return axios.post('/api/createnewlocation', data)
-  }
+  },
+
 };
