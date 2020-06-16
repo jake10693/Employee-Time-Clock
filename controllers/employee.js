@@ -6,7 +6,7 @@ module.exports = {
 
         db.Employee.create(payload)
         .then(({_id}) => {
-           return db.Location.findOneAndUpdate(locationId, {$push:{employees: _id}},{new: true})
+           return db.Location.findByIdAndUpdate(locationId, {$push:{employees: _id}})
         })
         .then(() => {
             res.status(201).json({success: true})
@@ -36,6 +36,19 @@ module.exports = {
         })
         .catch(err => {
             res.status(400).json(err)
+        })
+    },
+    getEmployeesByCompany: (req, res) => {
+        
+        let id = req.params.id;
+
+        db.Company.findById(id)
+        .populate({path: "location", populate:{path: "employees"}})
+        .then(emplys => {
+            res.json(emplys.location)
+        })
+        .catch(err => {
+            res.json(err)
         })
     }
 }

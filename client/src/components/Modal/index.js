@@ -51,7 +51,7 @@ export default function TransitionModal(props) {
     function handleClick() {
         let payload = {...formData, companyId}
         
-        if(formData){
+        if (formData) {
             API.createNewLocation(payload)
             .then((res)=>{
                 setOpen(false)

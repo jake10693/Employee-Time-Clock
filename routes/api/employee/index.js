@@ -20,4 +20,10 @@ router.route("/pop/:id")
     // @access Public
     .get(EmployeeController.getPopulatedEmployee)
 
+router.route("/company/:id")
+    // @route  GET api/employee/comapny/:id
+    // @desc   GET all employee that work for a specific company
+    // @access Public
+    .get(EmployeeController.getEmployeesByCompany)
+
 module.exports = router;

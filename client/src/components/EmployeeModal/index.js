@@ -5,6 +5,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 import './style.css'
 
 
@@ -31,6 +32,7 @@ function click() {
 
 export default function TransitionModal(props) {
     const classes = useStyles();
+    
     const [open, setOpen] = React.useState(false);
 
     const handleOpen = () => {
@@ -42,9 +44,9 @@ export default function TransitionModal(props) {
 
     return (
         <div>
-            <button type="button" id="btn" onClick={handleOpen}>
-                New Employee{props.children}
-            </button>
+            <Button size="small" variant="outlined" color="primary" onClick={handleOpen}>
+                <AddIcon />New Employee{props.children}
+            </Button>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -61,18 +63,18 @@ export default function TransitionModal(props) {
 
                     <div className={classes.paper}>
                         <form className={classes.root} noValidate autoComplete="off">
-                            <h2>Input New Employee</h2>
+                            <h2>New Employee</h2>
                             <TextField id="standard-basic" label="First Name" />
-                            <br></br>
+                            <br/>
                             <TextField id="standard-basic" label="Last Name" />
-                            <br></br>
+                            <br/>
                             <TextField id="standard-basic" label="Phone Number" />
-                            <br></br>
+                            <br/>
                             <TextField id="standard-basic" label="Adress" />
-                            <br></br>
+                            <br/>
                             <TextField id="standard-basic" label="Email" />
-                            <br></br>
-                            <br></br>
+                            <br/>
+                            <br/>
                             <Button size="small" variant="contained" color="primary" id="submit" onClick={click}>
                                 Submit
                         </Button>
