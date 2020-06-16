@@ -68,7 +68,7 @@ export default function LocationsList() {
                 <TableCell align="left">{row.address}</TableCell>
                 <TableCell align="left">{row.city}</TableCell>
                 <TableCell align="left">{row.phone}</TableCell>
-                <TableCell align="center">{row.employees.length}</TableCell>
+                <TableCell align="center">test</TableCell>
               </TableRow>
             ))}
           </TableBody>}

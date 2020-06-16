@@ -18,20 +18,21 @@ const useStyles = makeStyles({
   },
 });
 
-export default function LocationsList() {
+export default function EmployeeList() {
   const classes = useStyles();
   
   const {authContext} = useContext(AuthContext);
-  const { _id, location } = authContext;
-  
-  const [locationData, setLocationData] = useState(location);
+  const { _id, employees } = authContext;
+
+  const [employeeData, setEmployeeData] = useState(employees);
   const [render, setRender] = useState(false)
   
   useEffect(()=>{
-    API.getAllLocations(_id)
+    API.getEmployeesByCompany(_id)
     .then((res)=>{
       setRender(false)
-      setLocationData(res.data)
+      setEmployeeData(res.data)
+      console.log(res)
     })
     .catch((err)=>{
       setRender(false)
@@ -45,29 +46,29 @@ export default function LocationsList() {
   return (
     <>
       <Box className="location-btn">
-        <EmployeeModal reRender={reRender} />
+        <EmployeeModal render={reRender} />
       </Box>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Location Name</TableCell>
-              <TableCell align="left">Kiosk ID</TableCell>
-              <TableCell align="left">Address</TableCell>
+              <TableCell>First Name</TableCell>
+              <TableCell align="left">Last Name</TableCell>
+              <TableCell align="left">Email</TableCell>
               <TableCell align="left">City</TableCell>
-              <TableCell align="left">Phone</TableCell>
-              <TableCell align="center">Employees</TableCell>
+              <TableCell align="left">Assigned Location</TableCell>
+              <TableCell align="center">Active?</TableCell>
             </TableRow>
           </TableHead>
           {<TableBody>
-            {locationData.map((row) => (
+            {employeeData.map((row) => (
               <TableRow key={row._id}>
-                <TableCell component="th" scope="row">{row.locationName}</TableCell>
-                <TableCell align="left">{row._id}</TableCell>
+                <TableCell component="th" scope="row">{row.firstName}</TableCell>
+                <TableCell align="left">{row.lastName}</TableCell>
                 <TableCell align="left">{row.address}</TableCell>
                 <TableCell align="left">{row.city}</TableCell>
-                <TableCell align="left">{row.phone}</TableCell>
-                <TableCell align="center">{row.employees.length}</TableCell>
+                <TableCell align="left">{row.lastName}</TableCell>
+                <TableCell align="center">{row.active ? "Yes" : "No"}</TableCell>
               </TableRow>
             ))}
           </TableBody>}

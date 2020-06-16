@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-
 export default function TransitionModal(props) {
     
     const classes = useStyles();

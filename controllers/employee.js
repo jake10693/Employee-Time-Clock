@@ -2,11 +2,11 @@ const db = require('../models');
 
 module.exports = {
     newEmployee: (req, res) => {
-        let { locationId , ...payload } = req.body;
+        let { companyId , ...payload } = req.body;
 
         db.Employee.create(payload)
         .then(({_id}) => {
-           return db.Location.findByIdAndUpdate(locationId, {$push:{employees: _id}})
+           return db.Company.findByIdAndUpdate(companyId, {$push:{employees: _id}})
         })
         .then(() => {
             res.status(201).json({success: true})
@@ -43,9 +43,9 @@ module.exports = {
         let id = req.params.id;
 
         db.Company.findById(id)
-        .populate({path: "location", populate:{path: "employees"}})
+        .populate({path: "employees", populate:{path: "location"}})
         .then(emplys => {
-            res.json(emplys.location)
+            res.json(emplys.employees)
         })
         .catch(err => {
             res.json(err)

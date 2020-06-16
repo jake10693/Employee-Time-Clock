@@ -11,8 +11,7 @@ const LocationSchema = new Schema({
     city: String,
     state: String,
     postalCode: String,
-    phone: String,
-    employees: [{ type: Schema.Types.ObjectId, ref: "Employee" }]
+    phone: String
 },{
     timestamps:true
 });

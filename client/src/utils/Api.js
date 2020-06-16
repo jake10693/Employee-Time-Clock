@@ -27,5 +27,11 @@ export default {
   },
   getAllLocations: (id) => {
     return axios.get(`/api/location/company/${id}`)
+  },
+  getEmployeesByCompany: (compId) =>{
+    return axios.get(`/api/employee/company/${compId}`)
+  },
+  newEmployee: (body)=> {
+    return axios.post('/api/employee', body)
   }
 };
