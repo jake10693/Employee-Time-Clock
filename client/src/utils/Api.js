@@ -19,8 +19,10 @@ export default {
   clockInOut: (body) => {
     return axios.post("/api/clockin", body)
   }, 
-  createNewLocation: (data) => {
-    return axios.post('/api/createnewlocation', data)
+  createNewLocation: (body) => {
+    return axios.post('/api/location', body)
   },
-
+  getOneEmployee: (id) => {
+    return axios.get(`api/employee/${id}`)
+  }
 };

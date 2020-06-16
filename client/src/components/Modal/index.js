@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-//import API from '../../utils/Api'
+import { AuthContext } from "../../context/Auth";
+import API from '../../utils/Api'
 import './style.css'
 
 
@@ -26,22 +27,46 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function click() {
-    alert('fuck it')
-
-}
 
 export default function TransitionModal(props) {
+    
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-   
+
     const handleOpen = () => {
         setOpen(true)
     };
     const handleClose = () => {
         setOpen(false)
     };
-     
+    
+    const {authContext} = useContext(AuthContext);
+    const [formData, setFormData] = useState()
+
+    const companyId = authContext._id;
+
+    const handleFormChange = event => {
+        const { name, value } = event.target;
+        setFormData({...formData, [name]: value})
+        //setErrorMsg(null)
+    }
+
+    function handleClick() {
+        let payload = {...formData, companyId}
+        
+        if(formData){
+            API.createNewLocation(payload)
+            .then((res)=>{
+                console.log(res)
+                setOpen(false)
+                setFormData(null)
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+        }  
+    }
+    
 
     return (
         <div>
@@ -63,22 +88,24 @@ export default function TransitionModal(props) {
                 <Fade in={open}>
 
                     <div className={classes.paper}>
-                        <form className={classes.root} noValidate autoComplete="off">
+                        <form className={classes.root} noValidate={false} autoComplete="off">
                             <h2>Input New Location</h2>
-                            <TextField id="standard-basic" label="Company Name" />
+                            <TextField id="standard-basic" required={true} label="Location Name" name="locationName" onChange={handleFormChange} />
                             <br></br>
-                            <TextField id="standard-basic" label="Street Adress" />
+                            <TextField id="standard-basic" required={true} label="Street Adress" name="address" onChange={handleFormChange}  />
                             <br></br>
-                            <TextField id="standard-basic" label="City" />
+                            <TextField id="standard-basic" required={true} label="City" name="city" onChange={handleFormChange} />
                             <br></br>
-                            <TextField id="standard-basic" label="State" />
+                            <TextField id="standard-basic" required={true} label="State" name="state" onChange={handleFormChange} />
                             <br></br>
-                            <TextField id="standard-basic" label="Zipcode" />
+                            <TextField id="standard-basic" required={true} label="Zipcode" name="postalCode" onChange={handleFormChange} />
+                            <br></br>
+                            <TextField id="standard-basic" required={true} label="Phone" name="phone" onChange={handleFormChange} />
                             <br></br>
                             <br></br>
-                            <Button size="small" variant="contained" color="primary" id="submit" onClick={click}>
+                            <Button size="small" variant="contained" color="primary" id="submit" onClick={handleClick}>
                                 Submit
-                        </Button>
+                            </Button>
 
                         </form>
                     </div>

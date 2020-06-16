@@ -12,6 +12,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import API from '../../utils/Api';
 import NumPad from '../../components/NumPad';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -30,7 +31,6 @@ function ClockInList() {
     const [locationId, setLocationID] = useState(null);
     const [employees, setEmployees] = useState([]);
     const [loading, setLoading] = useState(true)
-    const [change, setChange] = useState(false)
     const [userId, setUserId] = useState('')
     
     useEffect(() => {
@@ -52,18 +52,16 @@ function ClockInList() {
 
     },[locationId])
 
- 
 
     const handleClick = (event) => {
         let id = event.currentTarget.id
         setUserId(id)
     }
-        
+
+    
     return (
         <>
-        {userId ? <Redirect to={{
-            pathname:"/timeclock", state:{id: userId }
-        }} /> :
+        {userId ? <Redirect to={{pathname: '/timeclock', state:{id: userId} }} /> :
         <List component="nav" className={classes.root}>
             {
                 loading ? <Loader /> :

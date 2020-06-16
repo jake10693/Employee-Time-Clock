@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -7,7 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import { toast } from 'react-toastify';
+//import { toast } from 'react-toastify';
 import TimerOffIcon from '@material-ui/icons/TimerOff';
 import TimerIcon from '@material-ui/icons/Timer';
 import FormControl from '@material-ui/core/FormControl';
@@ -24,7 +24,7 @@ import { TableSortLabel } from '@material-ui/core';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
+  
   return (
     <div
       role="tabpanel"
@@ -70,46 +70,47 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TimeClock(props) {
-  toast.configure()
+  
   const userId = props.location.state.id
 
-  const [message, setMessage] = useState(null)
-
   const classes = useStyles();
+  
+  const [message, setMessage] = useState(null);
   const [value, setValue] = useState(0);
-  const [buttonState, setButtonState] = useState(false);
-  const [startTime, setStartTime] = useState();
+  const [state, setState] = useState(null); 
+  const [name, setName] = useState("loading...");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-
-
-  function onSubmit(event) {
+  function onSubmit(event){
     event.preventDefault();
   }
-
+  
   function handleClick() {
-
-    API.clockInOut({ id: userId })
-      .then(res => {
-        console.log(res)
-        setMessage(res.data.message)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-
-    if (buttonState === false && message === "Sucessfully Clocked Out") {
-      setButtonState(true)
-      toast.success("Your now clocked in")
-    } else {
-      setButtonState(false)
-      toast.error("Your now clocked out")
-    }
+    API.clockInOut({id: userId}) 
+    .then(res => {
+      setMessage(res.data.message)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
   
+
+  useEffect(()=>{
+    API.getOneEmployee(userId) 
+    .then(res => {
+      console.log(res)
+      setState(res.data.lastClockId)
+      setName(`${res.data.firstName} ${res.data.lastName}`)
+    })
+    .catch(err => {
+      console.log(err)
+      setState(null)
+    })
+  },[message])
 
   return (
     <Box className={classes.root}>
@@ -124,16 +125,16 @@ function TimeClock(props) {
       <Grid container direction="row" justify="center" alignItems="center">
         <TabPanel value={value} index={0} >
           <Box textAlign="center" m={3} className="name-text">
-            <Typography>
-              John Smith
+            <Typography> 
+              {name}
             </Typography>
           </Box>
 
           <Box textAlign="center" m={3} className="name-text">
             {
-              buttonState ?
-                <Typography className="center status-green"><TimerIcon />Clocked In</Typography> :
-                <Typography className="center status-red"><TimerOffIcon />Clocked Out</Typography>
+            state ? 
+            <Typography className="center status-green"><TimerIcon />Clocked In</Typography> : 
+            <Typography className="center status-red"><TimerOffIcon />Clocked Out</Typography>
             }
           </Box>
 
@@ -157,7 +158,7 @@ function TimeClock(props) {
           </FormControl>
 
           <Button variant="contained" color="primary" onClick={handleClick} className="full-width">
-            {buttonState ? "Clock Out" : "Clock In"}
+            {state ?  "Clock Out" : "Clock In"}
           </Button>
         </TabPanel>
 
