@@ -54,7 +54,7 @@ export default function EmployeeList() {
               <TableCell>First Name</TableCell>
               <TableCell align="left">Last Name</TableCell>
               <TableCell align="left">Email</TableCell>
-              <TableCell align="left">City</TableCell>
+              <TableCell align="left">Phone Number</TableCell>
               <TableCell align="left">Assigned Location</TableCell>
               <TableCell align="center">Active?</TableCell>
             </TableRow>
