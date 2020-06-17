@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -7,7 +7,6 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-//import { toast } from 'react-toastify';
 import TimerOffIcon from '@material-ui/icons/TimerOff';
 import TimerIcon from '@material-ui/icons/Timer';
 import FormControl from '@material-ui/core/FormControl';
@@ -20,9 +19,9 @@ import Copyright from '../../components/Copyright'
 import Calendar from '../../components/Calendar';
 import API from '../../utils/Api';
 import './style.css';
-import { TableSortLabel } from '@material-ui/core';
 
 function TabPanel(props) {
+  
   const { children, value, index, ...other } = props;
   
   return (
@@ -102,7 +101,6 @@ function TimeClock(props) {
   useEffect(()=>{
     API.getOneEmployee(userId) 
     .then(res => {
-      console.log(res)
       setState(res.data.lastClockId)
       setName(`${res.data.firstName} ${res.data.lastName}`)
     })
@@ -110,7 +108,7 @@ function TimeClock(props) {
       console.log(err)
       setState(null)
     })
-  },[message])
+  },[message, userId])
 
   return (
     <Box className={classes.root}>
@@ -125,7 +123,7 @@ function TimeClock(props) {
       <Grid container direction="row" justify="center" alignItems="center">
         <TabPanel value={value} index={0} >
           <Box textAlign="center" m={3} className="name-text">
-            <Typography> 
+            <Typography variant="h4" color="primary"> 
               {name}
             </Typography>
           </Box>

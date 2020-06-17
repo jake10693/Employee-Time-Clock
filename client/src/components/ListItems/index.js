@@ -11,7 +11,7 @@ import GroupAddIcon from '@material-ui/icons/GroupAdd';
 
 export const mainListItems = (
   <div>
-    <Link to="/admin/dashboard" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+    <Link to="/dashboard" style={{ color: 'inherit', textDecoration: 'inherit'}}>
     <ListItem button>
       <ListItemIcon>
         <DashboardIcon />
@@ -20,7 +20,7 @@ export const mainListItems = (
     </ListItem>
     </Link>
     
-    <Link to="/admin/dashboard/locations" style={{ color: 'inherit', textDecoration: 'inherit'}}>  
+    <Link to="/dashboard/locations" style={{ color: 'inherit', textDecoration: 'inherit'}}>  
     <ListItem button>
       <ListItemIcon>
         <StoreIcon />
@@ -29,7 +29,7 @@ export const mainListItems = (
     </ListItem>
     </Link>
     
-    <Link to="/admin/dashboard/employees" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+    <Link to="/dashboard/employees" style={{ color: 'inherit', textDecoration: 'inherit'}}>
     <ListItem button>
       <ListItemIcon>
         <GroupAddIcon />

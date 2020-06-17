@@ -74,7 +74,7 @@ function SignInSide() {
         setErrorStatus(null)
         let token = res.data.user.token
         localStorage.setItem("user_token", token);
-        history.push("/admin/dashboard");
+        history.push("/dashboard");
     })
     .catch( err => {
         setErrorStatus(err.response.status)

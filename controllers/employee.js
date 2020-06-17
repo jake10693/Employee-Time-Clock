@@ -2,11 +2,11 @@ const db = require('../models');
 
 module.exports = {
     newEmployee: (req, res) => {
-        let { locationId , ...payload } = req.body;
+        let { companyId , ...payload } = req.body;
 
         db.Employee.create(payload)
         .then(({_id}) => {
-           return db.Location.findOneAndUpdate(locationId, {$push:{employees: _id}},{new: true})
+           return db.Company.findByIdAndUpdate(companyId, {$push:{employees: _id}})
         })
         .then(() => {
             res.status(201).json({success: true})
@@ -36,6 +36,19 @@ module.exports = {
         })
         .catch(err => {
             res.status(400).json(err)
+        })
+    },
+    getEmployeesByCompany: (req, res) => {
+        
+        let id = req.params.id;
+
+        db.Company.findById(id)
+        .populate({path: "employees", populate:{path: "location"}})
+        .then(emplys => {
+            res.json(emplys.employees)
+        })
+        .catch(err => {
+            res.json(err)
         })
     }
 }

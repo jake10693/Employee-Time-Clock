@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+import { AuthContext } from "../../context/Auth";
+import API from '../../utils/Api'
 import './style.css'
-
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -25,11 +27,8 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function click() {
-    alert("fuck it")
-}
-
 export default function TransitionModal(props) {
+    
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -40,11 +39,39 @@ export default function TransitionModal(props) {
         setOpen(false)
     };
 
+    const {authContext} = useContext(AuthContext);
+    const [formData, setFormData] = useState()
+
+    const companyId = authContext._id;
+
+    const handleFormChange = event => {
+        const { name, value } = event.target;
+        setFormData({...formData, [name]: value})
+    }
+    
+    function handleClick() {
+        let payload = {...formData, companyId}
+        
+        if (formData) {
+            API.newEmployee(payload)
+            .then((res)=>{
+                setOpen(false)
+                setFormData(null)
+                props.render()
+            })
+            .catch((err)=>{
+                console.log(err)
+                setFormData(null)
+                setOpen(false)
+            })
+        }  
+    }
+
     return (
         <div>
-            <button type="button" id="btn" onClick={handleOpen}>
-                New Employee{props.children}
-            </button>
+            <Button size="small" variant="outlined" color="primary" onClick={handleOpen}>
+                <AddIcon />New Employee{props.children}
+            </Button>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -61,22 +88,23 @@ export default function TransitionModal(props) {
 
                     <div className={classes.paper}>
                         <form className={classes.root} noValidate autoComplete="off">
-                            <h2>Input New Employee</h2>
-                            <TextField id="standard-basic" label="First Name" />
-                            <br></br>
-                            <TextField id="standard-basic" label="Last Name" />
-                            <br></br>
-                            <TextField id="standard-basic" label="Phone Number" />
-                            <br></br>
-                            <TextField id="standard-basic" label="Adress" />
-                            <br></br>
-                            <TextField id="standard-basic" label="Email" />
-                            <br></br>
-                            <br></br>
-                            <Button size="small" variant="contained" color="primary" id="submit" onClick={click}>
+                            <h2>New Employee</h2>
+                            <TextField id="standard-basic" label="First Name" name="firstName" onChange={handleFormChange} />
+                            <br/>
+                            <TextField id="standard-basic" label="Last Name" name="lastName" onChange={handleFormChange} />
+                            <br/>
+                            <TextField id="standard-basic" label="Phone Number" name="phone" onChange={handleFormChange} />
+                            <br/>
+                            <TextField id="standard-basic" label="Adress" name="address" onChange={handleFormChange} />
+                            <br/>
+                            <TextField id="standard-basic" label="Email" name="email" onChange={handleFormChange} />
+                            <br/>
+                            <TextField id="standard-basic" label="Location ID" name="location" onChange={handleFormChange} />
+                            <br/>
+                            <br/>
+                            <Button size="small" variant="contained" color="primary" id="submit" onClick={handleClick}>
                                 Submit
-                        </Button>
-
+                            </Button>
                         </form>
                     </div>
                 </Fade>

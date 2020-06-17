@@ -30,6 +30,7 @@ const EmployeeSchema = new Schema({
         trim: true
     },
     records: [{ type: Schema.Types.ObjectId, ref: "ClockIn" }],
+    location: {type: Schema.Types.ObjectId, ref: "Location"},
     lastClockId: String
 },{
     timestamps:true

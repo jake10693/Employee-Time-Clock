@@ -10,7 +10,6 @@ import Divider from '@material-ui/core/Divider';
 import Loader from '../../components/Loader';
 import PersonIcon from '@material-ui/icons/Person';
 import API from '../../utils/Api';
-import NumPad from '../../components/NumPad';
 
 
 const useStyles = makeStyles((theme) => ({

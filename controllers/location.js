@@ -29,10 +29,9 @@ module.exports = {
     getLocationEmployees: (req, res) => {
         let id = req.params.id;
 
-        db.Location.findById(id)
-        .populate("employees")
-        .then(location => {
-            res.status(200).json(location.employees)
+        db.Employee.find({location: id})
+        .then(employees => {
+            res.status(200).json(employees)
         })
         .catch(err => {
             res.status(400).json(err)
