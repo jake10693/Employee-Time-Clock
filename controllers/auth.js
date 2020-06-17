@@ -29,9 +29,10 @@ module.exports = {
                         newUser.password = hash;
                         newUser.save()
                             .then(user => {
+                                const secret = process.env.jwt_secret || config.get('jwtSecert')
                                 jwt.sign(
                                     {id: user.id}, 
-                                    config.get('jwtSecert'),
+                                    secret,
                                     (err, token) => {
                                         if(err) throw err;
                                         res.json({user:{id: user.id, email: user.email, token}})
@@ -53,7 +54,7 @@ module.exports = {
 
         Company.findOne({ username })
             .then(user => {
-                
+                const secret = process.env.jwt_secret || config.get('jwtSecert')
                 if(!user) return res.status(403).json("User does not exist");
 
                 bcrypt.compare(password, user.password)
@@ -62,7 +63,7 @@ module.exports = {
 
                         jwt.sign(
                             {id: user.id}, 
-                            config.get('jwtSecert'),
+                            secret,
                             (err, token) => {
                                 if(err) throw err;
                                 res.json({user:{id: user.id, pass: user.email, token}})
