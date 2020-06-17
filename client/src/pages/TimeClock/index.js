@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -7,7 +7,6 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import { toast } from 'react-toastify';
 import TimerOffIcon from '@material-ui/icons/TimerOff';
 import TimerIcon from '@material-ui/icons/Timer';
 import FormControl from '@material-ui/core/FormControl';
@@ -18,11 +17,13 @@ import Grid from '@material-ui/core/Grid';
 import AnalogClock from '../../components/AnalogClock';
 import Copyright from '../../components/Copyright'
 import Calendar from '../../components/Calendar';
+import API from '../../utils/Api';
 import './style.css';
 
 function TabPanel(props) {
+  
   const { children, value, index, ...other } = props;
-
+  
   return (
     <div
       role="tabpanel"
@@ -67,12 +68,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TimeClock() {
-  toast.configure()
+function TimeClock(props) {
+  
+  const userId = props.location.state.id
 
   const classes = useStyles();
+  
+  const [message, setMessage] = useState(null);
   const [value, setValue] = useState(0);
-  const [buttonState, setButtonState] = useState(false); 
+  const [state, setState] = useState(null); 
+  const [name, setName] = useState("loading...");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -81,16 +86,28 @@ function TimeClock() {
   function onSubmit(event){
     event.preventDefault();
   }
-
-  function test() {
-    if (buttonState === false) {
-        setButtonState(true)
-        toast.success("Your now clocked in")
-    } else {
-        setButtonState(false)
-        toast.error("Your now clocked out")
-    }
+  
+  function handleClick() {
+    API.clockInOut({id: userId}) 
+    .then(res => {
+      setMessage(res.data.message)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
+
+  useEffect(()=>{
+    API.getOneEmployee(userId) 
+    .then(res => {
+      setState(res.data.lastClockId)
+      setName(`${res.data.firstName} ${res.data.lastName}`)
+    })
+    .catch(err => {
+      console.log(err)
+      setState(null)
+    })
+  },[message, userId])
 
   return (
     <Box className={classes.root}>
@@ -105,14 +122,14 @@ function TimeClock() {
       <Grid container direction="row" justify="center" alignItems="center">
         <TabPanel value={value} index={0} >
           <Box textAlign="center" m={3} className="name-text">
-            <Typography> 
-              John Smith
+            <Typography variant="h4" color="primary"> 
+              {name}
             </Typography>
           </Box>
 
           <Box textAlign="center" m={3} className="name-text">
             {
-            buttonState ? 
+            state ? 
             <Typography className="center status-green"><TimerIcon />Clocked In</Typography> : 
             <Typography className="center status-red"><TimerOffIcon />Clocked Out</Typography>
             }
@@ -137,8 +154,8 @@ function TimeClock() {
             </Select>
           </FormControl>
 
-          <Button variant="contained" color="primary" onClick={test} className="full-width">
-            {buttonState ?  "Clock Out" : "Clock In"}
+          <Button variant="contained" color="primary" onClick={handleClick} className="full-width">
+            {state ?  "Clock Out" : "Clock In"}
           </Button>
         </TabPanel>
 

@@ -1,0 +1,9 @@
+.d-timer {
+    width: 180dppx;
+    display: inline-block;
+    position: absolute;
+    left: 3rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    text-align: left;
+}

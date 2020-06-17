@@ -4,21 +4,28 @@ import './style.css'
 
 class AnalogClock extends Component {
   
-  state = {
-    date: new Date(),
+  constructor() {
+      super(); 
+      this.state = {date: new Date()};
   }
- 
+
   componentDidMount() {
-    setInterval(
-      () => this.setState({ date: new Date() }),
+    this.update = setInterval(() =>
+      this.setState({date: new Date()}),
       1000
     );
   }
+
+  componentWillUnmount() { // delete the interval just before component is removed
+    clearInterval(this.update);
+  }
  
   render() {
+    const { date } = this.state
+    
     return (
       <>
-        <Clock value={this.state.date} size={200}/>
+        <Clock value={date} size={200}/>
       </>
     );
   }

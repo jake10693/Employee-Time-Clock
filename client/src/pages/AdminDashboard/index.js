@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Route, useHistory } from "react-router-dom";
+import { Route, useHistory, Switch } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 import Loader from '../../components/Loader'
 import API from '../../utils/Api';
@@ -23,6 +23,7 @@ import Avatar from '@material-ui/core/Avatar';
 import AvatarImg from './placeholder_large.png';
 import DashboardContent from '../../components/DashboardContent';
 import LocationList from '../../components/LocationsList';
+import EmployeeList from '../../components/EmployeeList';
 
 const drawerWidth = 240;
 
@@ -115,11 +116,11 @@ function AdminDashboard() {
     const {authContext, setAuthContext} = useContext(AuthContext);
 
     const logout = () => {
-        localStorage.clear();
+        localStorage.removeItem("user_token");
         setAuthContext()
         history.push("/");
     }
-
+    
     const localToken = localStorage.getItem("user_token")
 
     if (localToken) {
@@ -145,7 +146,7 @@ function AdminDashboard() {
             setAuthContext()
         })
     } else {
-        history.push("/admin/login");
+        history.push("/login");
     }
 
   const classes = useStyles();
@@ -204,10 +205,11 @@ function AdminDashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-
-            <Route exact path="/admin/dashboard" component={DashboardContent} />
-            <Route exact path="/admin/dashboard/locations" component={LocationList} />
-
+          <Switch>
+            <Route exact path="/dashboard" component={DashboardContent} />
+            <Route path="/dashboard/locations" component={LocationList} />
+            <Route path="/dashboard/employees" component={EmployeeList} />
+          </Switch>
           <Box pt={4}>
             <Copyright />
           </Box>

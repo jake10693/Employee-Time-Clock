@@ -1,0 +1,16 @@
+.num-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.num-buttons {
+    height: 5rem;
+    width: 5rem;
+    margin: .5rem !important;
+    border-radius: 100% !important;
+    font-size: 1.65rem !important;
+}

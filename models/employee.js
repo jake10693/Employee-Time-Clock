@@ -25,17 +25,15 @@ const EmployeeSchema = new Schema({
     },
     pin: {
         type: Number,
+        default: 0000,
         required: [true, "a pin is required!"],
         trim: true
     },
     records: [{ type: Schema.Types.ObjectId, ref: "ClockIn" }],
-    lastClockInId: {
-        type: String
-    },
-    createdOn: {
-        type: Date,
-        default: Date.now
-    }
+    location: {type: Schema.Types.ObjectId, ref: "Location"},
+    lastClockId: String
+},{
+    timestamps:true
 });
 
 const Employee = mongoose.model("Employee", EmployeeSchema);

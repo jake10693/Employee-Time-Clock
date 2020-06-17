@@ -4,20 +4,11 @@ const ClockInController = require('../../../controllers/clockin')
 
 
 router.route("/")
-    // @route  GET api/clockin
-    // @desc   GET all clockins
-    // @access Public
-    .get(ClockInController.getAllClockIns)
     // @route  POST api/clockin
-    // @desc   POST a new clockin
+    // @desc   POST employee id & role to record clock in/out
     // @access Public
-    //.post(ClockInController.clockInOut)
+    .post(ClockInController.clockInOut)
 
-router.route("/id")
-    // @route  DELETE api/clockin:id
-    // @desc   DELETE a clockin record
-    // @access Public
-    .delete(ClockInController.deleteClockin)
 
 router.route("/clockIn/:id")
     //.post(ClockInController.clockIn)

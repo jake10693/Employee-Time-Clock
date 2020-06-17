@@ -1,30 +1,52 @@
-const Location = require('../models/role');
+const db = require('../models');
 
 module.exports = {
-    getAllLocations: (req, res) => {
-        Location.find()
-        .sort({date: -1 })
-        .then(locations => res.json(locations))
-    },
     createNewLocation: (req, res) => {
-        const newLocation = new Location(res.body.location);
+        let { companyId , ...payload } = req.body;
 
-        newLocation.save().then(location => res.json(location));
-    },
-    deleteLocation: (req, res) => {
-        Location.findById(req.params.id)
-        .then(location => location.remove().then(() => res.json({success: true})))
-        .catch(err => res.status(404).json({success: false}));
-    },
-    addNewEmployee: (req, res) => {
-        let {id, ...rest} = req.body;
-        Location.findById(id)
-        .then( employee => {
-            employee.update({},{$push:{employees: rest}},{})
-            res.send("cool, done!")
+        db.Location.create(payload)
+        .then(({_id}) => {
+           return db.Company.findOneAndUpdate(companyId, {$push:{location: _id}},{new: true})
         })
-        .catch( err => {
-            res.send(err)
+        .then(()=>{
+            res.status(201).json({success: true})
+        })
+        .catch((err)=>{
+            res.status(422).json({success: false})
+        })
+    },
+    getOneLocation: (req, res) => {
+        let id = req.params.id;
+
+        db.Location.findById(id)
+        .then(location => {
+            res.status(200).json(location)
+        })
+        .catch(err => {
+            res.status(400).json({success: false})
+        })
+    },
+    getLocationEmployees: (req, res) => {
+        let id = req.params.id;
+
+        db.Employee.find({location: id})
+        .then(employees => {
+            res.status(200).json(employees)
+        })
+        .catch(err => {
+            res.status(400).json(err)
+        })
+    },
+    getAllLocation: (req, res) => {
+        let companyId = req.params.id;
+
+        db.Company.findById(companyId)
+        .populate("location")
+        .then(location => {
+            res.json(location.location)
+        })
+        .catch(err => {
+            res.status(400).json(err)
         })
     }
 }

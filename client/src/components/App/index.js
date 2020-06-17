@@ -9,6 +9,7 @@ import TimeClock from '../../pages/TimeClock';
 import { AuthContext } from '../../context/Auth';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Numpad from '../../components/NumPad';
 
 function App() {
     
@@ -25,10 +26,11 @@ function App() {
             <Router>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/kiosk" component={Kiosk} />
-                <Route path="/admin/login" component={LoginPage} />
+                <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />
-                <Route path="/admin/dashboard" component={AdminDashboard} />
+                <Route path="/dashboard" component={AdminDashboard} />
                 <Route path="/timeclock" component={TimeClock} />
+                <Route path="/numpad" component={Numpad} />
             </Router>
         </AuthContext.Provider>
     )

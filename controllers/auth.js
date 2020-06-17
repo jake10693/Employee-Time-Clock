@@ -74,6 +74,8 @@ module.exports = {
     },
     getUserData: (req, res) => {
         Company.findById(req.user.id)
+        .populate("employees")
+        .populate("location")
         .select('-password')
         .then(user => res.json(user))
     }
