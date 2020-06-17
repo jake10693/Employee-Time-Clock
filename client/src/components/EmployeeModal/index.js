@@ -7,6 +7,10 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import { AuthContext } from "../../context/Auth";
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 import API from '../../utils/Api'
 import './style.css'
 
@@ -24,6 +28,12 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2, 4, 3),
 
     },
+    formControl: {
+        minWidth: "100%",
+      },
+      selectEmpty: {
+        marginTop: theme.spacing(2),
+      },
 
 }));
 
@@ -42,12 +52,20 @@ export default function TransitionModal(props) {
     const {authContext} = useContext(AuthContext);
     const [formData, setFormData] = useState()
 
-    const companyId = authContext._id;
+    let {_id, location} = authContext;
+
+    let companyId = _id;
 
     const handleFormChange = event => {
         const { name, value } = event.target;
         setFormData({...formData, [name]: value})
     }
+    
+    const [selected, setSelected] = useState('');
+
+    const handleChange = (event) => {
+        setSelected(event.target.value);
+    };
     
     function handleClick() {
         let payload = {...formData, companyId}
@@ -100,6 +118,23 @@ export default function TransitionModal(props) {
                             <TextField id="standard-basic" label="Email" name="email" onChange={handleFormChange} />
                             <br/>
                             <TextField id="standard-basic" label="Location ID" name="location" onChange={handleFormChange} />
+                            <br/>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel>Location</InputLabel>
+                                <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={selected}
+                                onChange={handleChange}
+                                name="location"
+                                >
+                                {
+                                    location.map( location => {
+                                        return <MenuItem key={location._id} value={location._id}>{location.locationName}</MenuItem>
+                                    })
+                                }
+                                </Select>
+                            </FormControl>
                             <br/>
                             <br/>
                             <Button size="small" variant="contained" color="primary" id="submit" onClick={handleClick}>

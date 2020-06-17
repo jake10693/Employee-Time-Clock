@@ -32,7 +32,6 @@ export default function EmployeeList() {
     .then((res)=>{
       setRender(false)
       setEmployeeData(res.data)
-      console.log(res)
     })
     .catch((err)=>{
       setRender(false)
@@ -65,9 +64,9 @@ export default function EmployeeList() {
               <TableRow key={row._id}>
                 <TableCell component="th" scope="row">{row.firstName}</TableCell>
                 <TableCell align="left">{row.lastName}</TableCell>
-                <TableCell align="left">{row.address}</TableCell>
+                <TableCell align="left">{row.email}</TableCell>
+                <TableCell align="left">{row.phone}</TableCell>
                 <TableCell align="left">{row.city}</TableCell>
-                <TableCell align="left">{row.lastName}</TableCell>
                 <TableCell align="center">{row.active ? "Yes" : "No"}</TableCell>
               </TableRow>
             ))}
