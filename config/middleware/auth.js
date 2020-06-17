@@ -16,5 +16,5 @@ const Auth = (req, res, next) => {
    }
 
 }
-//fuck
+
 module.exports = Auth;
