@@ -64,7 +64,9 @@ export default function TransitionModal(props) {
     const [selected, setSelected] = useState('');
 
     const handleChange = (event) => {
-        setSelected(event.target.value);
+        const { name, value } = event.target;
+        setFormData({...formData, [name]: value})
+        setSelected(event.target.value)
     };
     
     function handleClick() {
@@ -116,8 +118,6 @@ export default function TransitionModal(props) {
                             <TextField id="standard-basic" label="Adress" name="address" onChange={handleFormChange} />
                             <br/>
                             <TextField id="standard-basic" label="Email" name="email" onChange={handleFormChange} />
-                            <br/>
-                            <TextField id="standard-basic" label="Location ID" name="location" onChange={handleFormChange} />
                             <br/>
                             <FormControl className={classes.formControl}>
                                 <InputLabel>Location</InputLabel>
