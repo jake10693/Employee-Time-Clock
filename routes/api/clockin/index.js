@@ -13,7 +13,6 @@ router.route("/")
 router.route("/clockIn/:id")
     //.post(ClockInController.clockIn)
 
-router.route("/clockOut")
-    .post(ClockInController.clockOut)
+
     
 module.exports = router;
