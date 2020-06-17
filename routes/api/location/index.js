@@ -26,4 +26,7 @@ router.route("/company/:id")
     // @access Public
     .get(LocationController.getAllLocation)
 
+router.route("/employee")
+    .post(LocationController.addNewEmployee)
+
 module.exports = router;

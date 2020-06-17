@@ -10,4 +10,10 @@ router.route("/")
     .post(ClockInController.clockInOut)
 
 
+router.route("/clockIn/:id")
+    //.post(ClockInController.clockIn)
+
+router.route("/clockOut")
+    .post(ClockInController.clockOut)
+    
 module.exports = router;
