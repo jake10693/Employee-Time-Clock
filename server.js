@@ -30,3 +30,4 @@ app.use("/api/auth", require("./routes/api/auth"));
 app.listen(PORT, function () {
   console.log(`Server is running on port ${PORT}!`);
 });
+// This is a random note to save so that I can commit to the branch with a message for future development
