@@ -1,29 +1,53 @@
-# Create React Express App
 
-## About This Boilerplate
-
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
-
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
-
-## Starting the app locally
-
-Start by installing front and backend dependencies. While in this directory, run the following command:
-
-```
-npm install
-```
-
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
-
-```
-npm start
-```
-
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+  # Employee-Time-Clock
+  
+  
+  ## Description
+  
+  A complex, full-stack web application designed with 2 user purposes: 1. To act as a way for employers to keep track of employee hours worked across as many locations as necessary. 2. To make clocking in simple for employees by making making it capable for them to clock in form anywhere at anytime. 
+  
+  ## Table of Contents 
+  
+  * [Installation](#installation)
+  
+  * [Usage](#usage)
+  
+  * [License](#license)
+  
+  * [Contributing](#contributing)
+  
+  * [Tests](#tests)
+  
+  * [Questions](#questions)
+  
+  ## Installation
+  
+  To install necessary dependencies, run the following command:
+  
+  ```
+  pnpm i
+  ```
+  
+  ## Usage
+  
+  The project is complete. Don't change any code unless it's a suggesting for writing existing code that is less heavy handed.
+  
+  
+    
+  ## Contributing
+  
+  ""
+  
+  ## Tests
+  
+  To run tests, run the following command:
+  
+  ```
+  npm start
+  ```
+  
+  ## Questions
+  
+  If you have any questions about the repo, open an issue or contact [jake10693](undefined) directly at jaydevvs16@gmail.com.
+  
+  
